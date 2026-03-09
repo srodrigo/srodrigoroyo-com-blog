@@ -1,40 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Sergio Rodrigo Royo | Learn How To Code | Computer Programming</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Sergio Rodrigo Royo | Learn How To Code | Computer Programming</description>
-    <generator>Hugo -- 0.151.0</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 21 Aug 2023 17:35:37 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>5 Best VS Code extensions for Rust development</title>
-      <link>http://localhost:1313/best-vs-code-extensions-for-rust-development/</link>
-      <pubDate>Mon, 21 Aug 2023 17:35:37 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=978</guid> 
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sergio Rodrigo Royo | Learn How To Code | Computer Programming</title><link>https://srodrigoroyo.com/</link><description>Recent content on Sergio Rodrigo Royo | Learn How To Code | Computer Programming</description><generator>Hugo -- 0.151.0</generator><language>en-US</language><lastBuildDate>Mon, 21 Aug 2023 17:35:37 +0000</lastBuildDate><atom:link href="https://srodrigoroyo.com/feed.xml" rel="self" type="application/rss+xml"/><item><title>5 Best VS Code extensions for Rust development</title><link>https://srodrigoroyo.com/best-vs-code-extensions-for-rust-development/</link><pubDate>Mon, 21 Aug 2023 17:35:37 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=978</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Rust is a relatively new programming language. Development tools are still growing, but there are a couple of useful VS Code extensions for Rust development. In this (shorter than usual) article, we’ll look at the state-of-the-art and what extensions can raise your Rust development to the next level.&lt;/p&gt;
-&lt;h2 id=&#34;5-best-vs-code-extensions-for-rust-development&#34;&gt;5 Best VS Code extensions for Rust development&lt;/h2&gt;
-&lt;h3 id=&#34;1-rust-analyzer&#34;&gt;1. rust-analyzer&lt;/h3&gt;
-&lt;p&gt;This extension is the &lt;strong&gt;cornerstone extension for Rust developers&lt;/strong&gt;. &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer&#34;&gt;rust-analyzer&lt;/a&gt; uses Language Server Protocol (LSP) to do what you expect from an official language extension. Here are a few examples:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Game Development In Rust: Making A Strategy Game (Part 3 - Adding Different Unit Types)</title>
-      <link>http://localhost:1313/game-development-in-rust-making-a-strategy-game-3/</link>
-      <pubDate>Tue, 16 May 2023 09:14:46 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=950</guid> 
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/game-development-in-rust-making-a-strategy-game-2/&#34;&gt;Part 2&lt;/a&gt;, we added our first unit and repurposed our codebase enough to keep adding more features.&lt;/p&gt;
+&lt;h2 id="5-best-vs-code-extensions-for-rust-development"&gt;5 Best VS Code extensions for Rust development&lt;/h2&gt;
+&lt;h3 id="1-rust-analyzer"&gt;1. rust-analyzer&lt;/h3&gt;
+&lt;p&gt;This extension is the &lt;strong&gt;cornerstone extension for Rust developers&lt;/strong&gt;. &lt;a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer"&gt;rust-analyzer&lt;/a&gt; uses Language Server Protocol (LSP) to do what you expect from an official language extension. Here are a few examples:&lt;/p&gt;</description></item><item><title>Game Development In Rust: Making A Strategy Game (Part 3 - Adding Different Unit Types)</title><link>https://srodrigoroyo.com/game-development-in-rust-making-a-strategy-game-3/</link><pubDate>Tue, 16 May 2023 09:14:46 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=950</guid><description>&lt;p&gt;In &lt;a href="https://srodrigoroyo.com/game-development-in-rust-making-a-strategy-game-2/"&gt;Part 2&lt;/a&gt;, we added our first unit and repurposed our codebase enough to keep adding more features.&lt;/p&gt;
 &lt;p&gt;This article is a direct continuation of the previous one. We will &lt;strong&gt;add a couple of different units for each player&lt;/strong&gt;, positioning them on opposite sides of the battlefield.&lt;/p&gt;
-&lt;h2 id=&#34;game-development-in-rust-making-a-strategy-game-part-3---adding-different-unit-types&#34;&gt;Game Development In Rust: Making A Strategy Game (Part 3 - Adding Different Unit Types)&lt;/h2&gt;
-&lt;p&gt;Adding multiple units follows the same principle as adding a single one. We will build on top of our shiny &lt;code&gt;create_units_system&lt;/code&gt; to delight our eyes with something that finally looks like a strategy game.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Game Development In Rust: Making A Strategy Game (Part 2 - Adding The First Unit)</title>
-      <link>http://localhost:1313/game-development-in-rust-making-a-strategy-game-2/</link>
-      <pubDate>Sun, 14 May 2023 16:17:25 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=936</guid> 
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/game-development-in-rust-strategy-game-1/&#34;&gt;Part 1&lt;/a&gt; of Game Development In Rust: Making A Strategy Game, we created a basic battlefield to get us going. It is time to add some units so it doesn’t look that lonely.&lt;/p&gt;
+&lt;h2 id="game-development-in-rust-making-a-strategy-game-part-3---adding-different-unit-types"&gt;Game Development In Rust: Making A Strategy Game (Part 3 - Adding Different Unit Types)&lt;/h2&gt;
+&lt;p&gt;Adding multiple units follows the same principle as adding a single one. We will build on top of our shiny &lt;code&gt;create_units_system&lt;/code&gt; to delight our eyes with something that finally looks like a strategy game.&lt;/p&gt;</description></item><item><title>Game Development In Rust: Making A Strategy Game (Part 2 - Adding The First Unit)</title><link>https://srodrigoroyo.com/game-development-in-rust-making-a-strategy-game-2/</link><pubDate>Sun, 14 May 2023 16:17:25 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=936</guid><description>&lt;p&gt;In &lt;a href="https://srodrigoroyo.com/game-development-in-rust-strategy-game-1/"&gt;Part 1&lt;/a&gt; of Game Development In Rust: Making A Strategy Game, we created a basic battlefield to get us going. It is time to add some units so it doesn’t look that lonely.&lt;/p&gt;
 &lt;p&gt;This article aims to &lt;strong&gt;load a unit in and render it&lt;/strong&gt; on the battlefield and improve our codebase to accommodate this new feature.&lt;/p&gt;
 &lt;p&gt;We are going to face a couple of interesting decisions along the way:&lt;/p&gt;
 &lt;ul&gt;
@@ -42,157 +13,14 @@
 &lt;li&gt;How to structure our systems.&lt;/li&gt;
 &lt;li&gt;Dependencies between entities in our ECS.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;game-development-in-rust-making-a-strategy-game-part-2---adding-the-first-unit&#34;&gt;Game Development In Rust: Making A Strategy Game (Part 2 - Adding The First Unit)&lt;/h2&gt;
-&lt;p&gt;As discussed, we will add a few units for our strategy game in Rust. We should start with adding a single unit. In the next article, we will attempt to clutter populate the battlefield with all sorts of warriors and wizards.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Game Development In Rust: Making A Strategy Game (Part 1 - The Battlefield)</title>
-      <link>http://localhost:1313/game-development-in-rust-strategy-game-1/</link>
-      <pubDate>Mon, 10 Apr 2023 13:40:35 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=881</guid> 
-      <description>&lt;p&gt;I have bitten the sweet, poisoned apple of game development again. Rust is gaining some traction among game developers, and it is time to join the crowd. We will make a small game in Rust to see whether the hype is well deserved.&lt;/p&gt;
-&lt;p&gt;The game we are going to make is a &lt;strong&gt;2D turned-based strategy game&lt;/strong&gt;. I wanted to start with something more classical, but I thought people were tired of the typical starting games. Strategy games have some tricky parts but simplify other areas, so hopefully, they will balance themselves out.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How To Improve Developer Productivity: My 11 Battle-Tested Tips</title>
-      <link>http://localhost:1313/improve-developer-productivity/</link>
-      <pubDate>Sun, 26 Mar 2023 11:30:00 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=832</guid> 
-      <description>&lt;p&gt;The quest on how to improve developer productivity is not short of epic battles. Many of us have searched for the holy grail of productivity for many years. In this article, I will provide the scars and glory of my fights. Time-sink dragons have been slayed and…&lt;/p&gt;
-&lt;p&gt;On a less novelesque note, I want to share with you the best tools and tips I have learned over the years. All of them are key pieces in my current toolset. They are my Swiss Army Knives. I hope you will find at least a few of them useful.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Getting Started With Rust: A Simplified Hands-on Guide</title>
-      <link>http://localhost:1313/getting-started-with-rust/</link>
-      <pubDate>Wed, 22 Mar 2023 16:38:58 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=783</guid> 
-      <description>&lt;p&gt;In a previous &lt;a href=&#34;http://localhost:1313/introduction-to-rust&#34;&gt;Introduction To Rust&lt;/a&gt;, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&amp;rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂&lt;/p&gt;
-&lt;h2 id=&#34;how-to-install-rust&#34;&gt;&lt;strong&gt;How to install Rust&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a &lt;a href=&#34;https://www.rust-lang.org/tools/install&#34;&gt;tool&lt;/a&gt; to install Rust depending on your operating system, I won&amp;rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terms and Conditions</title>
-      <link>http://localhost:1313/terms-and-conditions/</link>
-      <pubDate>Thu, 16 Mar 2023 15:09:02 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/terms-and-conditions/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>A Comprehensive Codeless Introduction To Rust</title>
-      <link>http://localhost:1313/introduction-to-rust/</link>
-      <pubDate>Thu, 16 Mar 2023 15:00:00 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/?p=727</guid> 
-      <description>&lt;p&gt;Rust is a relatively new programming language that has gained the right to be the &lt;strong&gt;most loved programming language&lt;/strong&gt; on &lt;a href=&#34;https://survey.stackoverflow.co/2022/?utm_source=so-owned&amp;amp;utm_medium=announcement-banner&amp;amp;utm_campaign=dev-survey-2022&amp;amp;utm_content=results#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages&#34;&gt;StackOverflow surveys&lt;/a&gt; for a few consecutive years. In this codeless introduction to Rust, we will explore what all the fuss is about.&lt;/p&gt;
-&lt;p&gt;Rust started as an idea after a &lt;a href=&#34;https://www.techspot.com/news/97654-how-broken-elevator-led-one-most-loved-programming.html&#34;&gt;frustrating&lt;/a&gt; experience after a long work day. I can understand why Graydon Hoare ( &lt;a href=&#34;https://twitter.com/graydon_pub&#34;&gt;@graydon_pub&lt;/a&gt;) opened his laptop and started designing a new programming language that helps people write code that does not mess up our beloved elevators.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Disclaimer</title>
-      <link>http://localhost:1313/disclaimer/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:27 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/disclaimer/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Imprint</title>
-      <link>http://localhost:1313/imprint/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:27 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/imprint/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Cookie Policy (AU)</title>
-      <link>http://localhost:1313/cookie-policy-au/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:26 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-au/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy Statement (AU)</title>
-      <link>http://localhost:1313/privacy-statement-au/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:26 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-au/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Cookie Policy (CA)</title>
-      <link>http://localhost:1313/cookie-policy-ca/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:25 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-ca/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy Statement (CA)</title>
-      <link>http://localhost:1313/privacy-statement-ca/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:25 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-ca/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Opt-out preferences</title>
-      <link>http://localhost:1313/opt-out-preferences/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/opt-out-preferences/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy Statement (UK)</title>
-      <link>http://localhost:1313/privacy-statement-uk/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-uk/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy Statement (US)</title>
-      <link>http://localhost:1313/privacy-statement-us/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-us/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Cookie Policy (UK)</title>
-      <link>http://localhost:1313/cookie-policy-uk/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:23 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-uk/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Privacy Statement (EU)</title>
-      <link>http://localhost:1313/privacy-statement-eu/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:23 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-eu/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Cookie Policy (EU)</title>
-      <link>http://localhost:1313/cookie-policy-eu/</link>
-      <pubDate>Thu, 16 Mar 2023 14:42:22 +0000</pubDate>
-       <guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-eu/</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Tue, 19 Oct 2021 07:36:28 +0000</pubDate>
-       <guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=45</guid> 
-      <description>&lt;h1 id=&#34;hi-im-sergio-rodrigo-royo&#34;&gt;Hi, I&amp;rsquo;m Sergio Rodrigo Royo&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m a software developer, musician, and entrepreneur. I love programming and music, and I leverage them to build businesses that help other human beings.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>http://localhost:1313/blog/</link>
-      <pubDate>Tue, 19 Oct 2021 07:36:16 +0000</pubDate>
-       <guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=43</guid> 
-      <description></description>
-    </item>
-    <item>
-      <title>Home</title>
-      <link>http://localhost:1313/</link>
-      <pubDate>Tue, 07 Sep 2021 10:50:28 +0000</pubDate>
-       <guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=5</guid> 
-      <description>&lt;h1 id=&#34;hi-im-sergio-rodrigo-royo&#34;&gt;Hi, I&amp;rsquo;m Sergio Rodrigo Royo&lt;/h1&gt;
+&lt;h2 id="game-development-in-rust-making-a-strategy-game-part-2---adding-the-first-unit"&gt;Game Development In Rust: Making A Strategy Game (Part 2 - Adding The First Unit)&lt;/h2&gt;
+&lt;p&gt;As discussed, we will add a few units for our strategy game in Rust. We should start with adding a single unit. In the next article, we will attempt to clutter populate the battlefield with all sorts of warriors and wizards.&lt;/p&gt;</description></item><item><title>Game Development In Rust: Making A Strategy Game (Part 1 - The Battlefield)</title><link>https://srodrigoroyo.com/game-development-in-rust-strategy-game-1/</link><pubDate>Mon, 10 Apr 2023 13:40:35 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=881</guid><description>&lt;p&gt;I have bitten the sweet, poisoned apple of game development again. Rust is gaining some traction among game developers, and it is time to join the crowd. We will make a small game in Rust to see whether the hype is well deserved.&lt;/p&gt;
+&lt;p&gt;The game we are going to make is a &lt;strong&gt;2D turned-based strategy game&lt;/strong&gt;. I wanted to start with something more classical, but I thought people were tired of the typical starting games. Strategy games have some tricky parts but simplify other areas, so hopefully, they will balance themselves out.&lt;/p&gt;</description></item><item><title>How To Improve Developer Productivity: My 11 Battle-Tested Tips</title><link>https://srodrigoroyo.com/improve-developer-productivity/</link><pubDate>Sun, 26 Mar 2023 11:30:00 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=832</guid><description>&lt;p&gt;The quest on how to improve developer productivity is not short of epic battles. Many of us have searched for the holy grail of productivity for many years. In this article, I will provide the scars and glory of my fights. Time-sink dragons have been slayed and…&lt;/p&gt;
+&lt;p&gt;On a less novelesque note, I want to share with you the best tools and tips I have learned over the years. All of them are key pieces in my current toolset. They are my Swiss Army Knives. I hope you will find at least a few of them useful.&lt;/p&gt;</description></item><item><title>Getting Started With Rust: A Simplified Hands-on Guide</title><link>https://srodrigoroyo.com/getting-started-with-rust/</link><pubDate>Wed, 22 Mar 2023 16:38:58 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=783</guid><description>&lt;p&gt;In a previous &lt;a href="https://srodrigoroyo.com/introduction-to-rust"&gt;Introduction To Rust&lt;/a&gt;, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&amp;rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂&lt;/p&gt;
+&lt;h2 id="how-to-install-rust"&gt;&lt;strong&gt;How to install Rust&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a &lt;a href="https://www.rust-lang.org/tools/install"&gt;tool&lt;/a&gt; to install Rust depending on your operating system, I won&amp;rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.&lt;/p&gt;</description></item><item><title>Terms and Conditions</title><link>https://srodrigoroyo.com/terms-and-conditions/</link><pubDate>Thu, 16 Mar 2023 15:09:02 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/terms-and-conditions/</guid><description/></item><item><title>A Comprehensive Codeless Introduction To Rust</title><link>https://srodrigoroyo.com/introduction-to-rust/</link><pubDate>Thu, 16 Mar 2023 15:00:00 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/?p=727</guid><description>&lt;p&gt;Rust is a relatively new programming language that has gained the right to be the &lt;strong&gt;most loved programming language&lt;/strong&gt; on &lt;a href="https://survey.stackoverflow.co/2022/?utm_source=so-owned&amp;amp;utm_medium=announcement-banner&amp;amp;utm_campaign=dev-survey-2022&amp;amp;utm_content=results#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages"&gt;StackOverflow surveys&lt;/a&gt; for a few consecutive years. In this codeless introduction to Rust, we will explore what all the fuss is about.&lt;/p&gt;
+&lt;p&gt;Rust started as an idea after a &lt;a href="https://www.techspot.com/news/97654-how-broken-elevator-led-one-most-loved-programming.html"&gt;frustrating&lt;/a&gt; experience after a long work day. I can understand why Graydon Hoare ( &lt;a href="https://twitter.com/graydon_pub"&gt;@graydon_pub&lt;/a&gt;) opened his laptop and started designing a new programming language that helps people write code that does not mess up our beloved elevators.&lt;/p&gt;</description></item><item><title>Disclaimer</title><link>https://srodrigoroyo.com/disclaimer/</link><pubDate>Thu, 16 Mar 2023 14:42:27 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/disclaimer/</guid><description/></item><item><title>Imprint</title><link>https://srodrigoroyo.com/imprint/</link><pubDate>Thu, 16 Mar 2023 14:42:27 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/imprint/</guid><description/></item><item><title>Cookie Policy (AU)</title><link>https://srodrigoroyo.com/cookie-policy-au/</link><pubDate>Thu, 16 Mar 2023 14:42:26 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-au/</guid><description/></item><item><title>Privacy Statement (AU)</title><link>https://srodrigoroyo.com/privacy-statement-au/</link><pubDate>Thu, 16 Mar 2023 14:42:26 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-au/</guid><description/></item><item><title>Cookie Policy (CA)</title><link>https://srodrigoroyo.com/cookie-policy-ca/</link><pubDate>Thu, 16 Mar 2023 14:42:25 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-ca/</guid><description/></item><item><title>Privacy Statement (CA)</title><link>https://srodrigoroyo.com/privacy-statement-ca/</link><pubDate>Thu, 16 Mar 2023 14:42:25 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-ca/</guid><description/></item><item><title>Opt-out preferences</title><link>https://srodrigoroyo.com/opt-out-preferences/</link><pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/opt-out-preferences/</guid><description/></item><item><title>Privacy Statement (UK)</title><link>https://srodrigoroyo.com/privacy-statement-uk/</link><pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-uk/</guid><description/></item><item><title>Privacy Statement (US)</title><link>https://srodrigoroyo.com/privacy-statement-us/</link><pubDate>Thu, 16 Mar 2023 14:42:24 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-us/</guid><description/></item><item><title>Cookie Policy (UK)</title><link>https://srodrigoroyo.com/cookie-policy-uk/</link><pubDate>Thu, 16 Mar 2023 14:42:23 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-uk/</guid><description/></item><item><title>Privacy Statement (EU)</title><link>https://srodrigoroyo.com/privacy-statement-eu/</link><pubDate>Thu, 16 Mar 2023 14:42:23 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/privacy-statement-eu/</guid><description/></item><item><title>Cookie Policy (EU)</title><link>https://srodrigoroyo.com/cookie-policy-eu/</link><pubDate>Thu, 16 Mar 2023 14:42:22 +0000</pubDate><guid isPermaLink="false">https://srodrigoroyo.com/cookie-policy-eu/</guid><description/></item><item><title>About</title><link>https://srodrigoroyo.com/about/</link><pubDate>Tue, 19 Oct 2021 07:36:28 +0000</pubDate><guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=45</guid><description>&lt;h1 id="hi-im-sergio-rodrigo-royo"&gt;Hi, I&amp;rsquo;m Sergio Rodrigo Royo&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m a software developer, musician, and entrepreneur. I love programming and music, and I leverage them to build businesses that help other human beings.&lt;/p&gt;</description></item><item><title>Blog</title><link>https://srodrigoroyo.com/blog/</link><pubDate>Tue, 19 Oct 2021 07:36:16 +0000</pubDate><guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=43</guid><description/></item><item><title>Home</title><link>https://srodrigoroyo.com/</link><pubDate>Tue, 07 Sep 2021 10:50:28 +0000</pubDate><guid isPermaLink="false">https://kits.themecy.com/memberships-3/?page_id=5</guid><description>&lt;h1 id="hi-im-sergio-rodrigo-royo"&gt;Hi, I&amp;rsquo;m Sergio Rodrigo Royo&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;m a &lt;strong&gt;software developer, musician, and entrepreneur&lt;/strong&gt;. I love programming and music, and I leverage them to build businesses that help other human beings.&lt;/p&gt;
-&lt;h2 id=&#34;what-to-expect-to-see-on-this-website&#34;&gt;What to expect to see on this website?&lt;/h2&gt;
-&lt;p&gt;I currently write articles on programming, focusing on the &lt;strong&gt;Rust programming language&lt;/strong&gt;. To me, Rust will be one of the pillars of technology for the next few decades. See the articles below if you are interested in Rust!&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;h2 id="what-to-expect-to-see-on-this-website"&gt;What to expect to see on this website?&lt;/h2&gt;
+&lt;p&gt;I currently write articles on programming, focusing on the &lt;strong&gt;Rust programming language&lt;/strong&gt;. To me, Rust will be one of the pillars of technology for the next few decades. See the articles below if you are interested in Rust!&lt;/p&gt;</description></item></channel></rss>

@@ -1,672 +1,202 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Getting Started With Rust: A Simplified Hands-on Guide | Sergio Rodrigo Royo | Learn How To Code | Computer Programming</title>
-<meta name="keywords" content="">
-<meta name="description" content="In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Getting Started With Rust: A Simplified Hands-on Guide | Sergio Rodrigo Royo | Learn How To Code | Computer Programming</title><meta name=keywords content><meta name=description content="In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂
 How to install Rust
-Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won&rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.">
-<meta name="author" content="wpx_srodrigoroyo_admin">
-<link rel="canonical" href="http://localhost:1313/getting-started-with-rust/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.4c9741be0343600f14d5886dc8c02495dd964671dd5db66c61c36d0d56fcb253.css" integrity="sha256-TJdBvgNDYA8U1YhtyMAkld2WRnHdXbZsYcNtDVb8slM=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/getting-started-with-rust/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Sergio Rodrigo Royo | Learn How To Code | Computer Programming (Alt + H)">Sergio Rodrigo Royo | Learn How To Code | Computer Programming</a>
-            <div class="logo-switches">
-            </div>
-        </div>
-        <ul id="menu">
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      Getting Started With Rust: A Simplified Hands-on Guide
-    </h1>
-    <div class="post-meta"><span title='2023-03-22 16:38:58 +0000 GMT'>March 22, 2023</span>&nbsp;·&nbsp;<span>17 min</span>&nbsp;·&nbsp;<span>wpx_srodrigoroyo_admin</span>
-
-</div>
-  </header> 
-<figure class="entry-cover">
-        <img loading="eager" src="http://localhost:1313/wp-content/uploads/2023/03/getting-started-with-rust-scaled.jpg" alt="getting-started-with-rust">
-        
-</figure>
-  <div class="post-content"><p>In a previous <a href="/introduction-to-rust">Introduction To Rust</a>, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂</p>
-<h2 id="how-to-install-rust"><strong>How to install Rust</strong><a hidden class="anchor" aria-hidden="true" href="#how-to-install-rust">#</a></h2>
-<p>Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a <a href="https://www.rust-lang.org/tools/install">tool</a> to install Rust depending on your operating system, I won&rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.</p>
-<h2 id="getting-started-with-rust"><strong>Getting started with Rust</strong><a hidden class="anchor" aria-hidden="true" href="#getting-started-with-rust">#</a></h2>
-<p>Now, we are finally going to write some code (that’s what we are here for, right?).</p>
-<p>Full disclaimer: I have to confess that I rewrote this section entirely. I wasn’t happy with a boring summary of other resources. It was even painful to write. So I spared you the pain of reading it and turned it into a less thorough but hopefully more engaging piece. I hope you will agree with me!</p>
-<p>Let’s roll our sleeves and get hands-on.</p>
-<h3 id="hello-world"><strong>Hello World</strong><a hidden class="anchor" aria-hidden="true" href="#hello-world">#</a></h3>
-<p>I refuse to use the classical <code>Hello World</code>, so we will go with a <code>Hello Rust</code> here (consider this a Hello World 1.1, or something like that 🙂).</p>
-<p>First, we need to create a new rust project. For this task, we can use <code>cargo</code>, Rust’s package manager. <code>cargo new</code> is the <code>cargo</code> command that creates a new project for us.</p>
-<p>Go ahead and open a terminal, then type the following:</p>
-<p>ShellScript</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cargo new hello_rust
-</span></span></code></pre></div><p>Cargo will create a new <code>hello_rust</code> folder with the new project source code. If we inspect the project, we should see something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hello_rust/
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>├── Cargo.toml
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>├── src/
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>│ └── main.rs
-</span></span></code></pre></div><p><code>Cargo.toml</code> is the file where <code>cargo</code> defines the project package and all its dependencies, among other things.</p>
-<p>For now, we are interested in <code>main.rs</code>. Go ahead and open this file in NeoVim your favorite editor.</p>
-<p>As you can see, there is already a <code>Hello, world</code> program.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    println!(&#34;Hello, world!&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The first thing we see in this file is <code>fn main</code>. Rust defines a function with the <code>fn</code> keyword. The main function in a Rust program is called, well, <code>main</code>. It takes no parameters.</p>
-<p>The next interesting line is <code>println!(&quot;Hello, Rust!&quot;);</code>, Rust’s <a href="https://doc.rust-lang.org/std/macro.println.html">macro</a> to output a line to the standard output. For the sake of simplicity, let’s say that <code>println!</code> takes one string parameter. Notice that the macro needs to be called with <code>!</code> (bang) to expand the macro. If this doesn’t make sense yet, we will look into macros in detail later.</p>
-<p>For now, just <em>fix</em> the program by replacing <code>world</code> with <code>Rust</code>.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    println!(&#34;Hello, Rust!&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>On the terminal, type the following to run our improved version of the program:</p>
-<p>ShellScript</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cargo run
-</span></span></code></pre></div><p>If everything went okay, we should see a <code>Hello, Rust!</code> message.</p>
-<p>Achievement unlocked! You have written your first program in Rust.</p>
-<h3 id="rusts-basic-constructs"><strong>Rust’s basic constructs</strong><a hidden class="anchor" aria-hidden="true" href="#rusts-basic-constructs">#</a></h3>
-<p>Our <code>Hello Rust</code> is a good start, but we need something a bit more substantial if we want to master Rust.</p>
-<p>One thing to note is that Rust uses semicolons at the end of each line (yay!). Unfortunately, there are a few exceptions where semicolons are omitted. In my view, this was done with the best intentions (brevity) but it creates unnecessary confusion.</p>
-<p>Having said that, let’s explore some of the basic constructs in Rust.</p>
-<h4 id="variables"><strong>Variables</strong><a hidden class="anchor" aria-hidden="true" href="#variables">#</a></h4>
-<p>Variables in Rust are similar to the ones in other programming languages, such as C++ or TypeScript. To create a variable, just prefix it with <code>let</code>, then assign a value.</p>
-<p>Let’s take our <code>Hello Rust</code> program and extract the string on <code>line 2</code> into a variable:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let message = &#34;Hello, Rust!&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;{message}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If we run the program, it should print out the exact same message as before.</p>
-<p>Rust favors immutability by default. Re-assigning a variable will result in an error. Just for fun and exploration, let’s replace our <code>message</code> variable with the following:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let message = &#34;Hello, Rust!&#34;;
-</span></span><span style="display:flex;"><span>    message = &#34;Hello, C++ (huh!)&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;{message}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>After some warnings, we should see an error:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>error[E0384]: cannot assign twice <span style="color:#66d9ef">to</span> immutable variable <span style="color:#f92672">`</span>message<span style="color:#f92672">`</span>
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">--&gt;</span> src<span style="color:#f92672">/</span>main.rs:<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">|</span>     let message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, Rust!&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>         <span style="color:#f92672">-----</span><span style="color:#75715e">--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  |         |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">|</span>         first assignment <span style="color:#66d9ef">to</span> <span style="color:#f92672">`</span>message<span style="color:#f92672">`</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>         help: consider making this binding mutable: <span style="color:#f92672">`</span>mut message<span style="color:#f92672">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>     message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, C++ (huh!)&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>     <span style="color:#f92672">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span> cannot assign twice <span style="color:#66d9ef">to</span> immutable variable
-</span></span></code></pre></div><p>What Rust is telling us is that <code>message</code> is immutable, so we cannot re-assign it. The way to fix this issue is to declare the variable as mutable. We can do this in Rust by adding the <code>mut</code> keyword in front of the variable name:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let mut message = &#34;Hello, Rust!&#34;;
-</span></span><span style="display:flex;"><span>    message = &#34;Hello, C++ (huh!)&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;{message}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The code above compiles, meaning we can now re-assign <code>message</code> to the new string.</p>
-<p>Another thing to note is the naming convention. Variables in Rust use the <code>snake_case</code> convention. For example: <code>let my_message = &quot;Held by a loooong variable&quot;;</code></p>
-<p>One interesting thing to mention is that Rust can infer the type of the variable that we just declared. <code>let message = &quot;Hello, Rust!&quot;;</code> is enough for Rust to figure out that the type of this variable should be <code>&amp;str</code>.</p>
-<p>NOTE: If you are wondering what <code>&amp;str</code> means, it is a reference ( <code>&amp;</code>) to an <code>str</code> primitive type (a <em>string</em>, to simplify things). The reason it needs to be a reference is beyond the scope of this introductory article, but we’ll get there eventually.</p>
-<p>If we want, we can specify the type, by adding <code>&amp;str</code> after the variable name: <code>let message: &amp;str = &quot;Hello, Rust&quot;;</code>.</p>
-<p>This flexibility is nice to have. Short-lived variables don’t benefit much from having the explicit type declared, but long-lived variables can be easier to follow if they have it.</p>
-<p>The last trick to look at is <strong>shadowing</strong>. In Rust, you can re-declare a variable, effectively shadowing it. Example:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let message = &#34;Hello, Rust!&#34;;
-</span></span><span style="display:flex;"><span>    let message = &#34;I got a new value!&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;Hey, {message}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The snippet above will print <code>Hey, I got a new value!</code> out. The second declaration of <code>message</code> shadows the first one. Note the <code>let</code> keyword on <code>line 2</code>.</p>
-<p>Shadowing can be a useful feature for short scopes. However, I recommend being careful and using it sparingly, as it tends to cause more confusion than clarity.</p>
-<h4 id="constants"><strong>Constants</strong><a hidden class="anchor" aria-hidden="true" href="#constants">#</a></h4>
-<p>Rust provides a terser way to store immutable data, called <code>constants</code>. They are similar to immutable variables, but constants:</p>
-<ul>
-<li>Are declared with <code>const</code> instead of <code>let</code>. For example: <code>const PI: f32 = 3.14159;</code></li>
-<li>Require the type to be specified.</li>
-<li>Need to be computed at compile-time, so they cannot store values computed at runtime.</li>
-<li>Can be declared at the global scope (I wouldn’t say this is best practice, but you can do it).</li>
-<li>Cannot be mutated, even with <code>mut</code>.</li>
-</ul>
-<p>Let’s go ahead and modify our program to replace the immutable variable with a constant (yes, constants work with <code>str</code> references).</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> MESSAGE: <span style="color:#f92672">&amp;</span>str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, Rust!&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{MESSAGE}&#34;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="data-types"><strong>Data Types</strong><a hidden class="anchor" aria-hidden="true" href="#data-types">#</a></h4>
-<p>Rust is a statically-typed language, so types are known at compile-time (including the <code>dyn</code> dynamic type, but that one is for a future article).</p>
-<p>As we have seen in our <code>Hello Rust</code> example, Rust provides <strong>type inference</strong>, letting developers omit types under certain conditions. This is a list of things that Rust can infer the type from:</p>
-<h5 id="variables-1"><strong>Variables</strong><a hidden class="anchor" aria-hidden="true" href="#variables-1">#</a></h5>
-<p>Rust can infer numeric, boolean, and string types, as we have already seen.</p>
-<h5 id="generic-types"><strong>Generic types</strong><a hidden class="anchor" aria-hidden="true" href="#generic-types">#</a></h5>
-<p>Inferred based on the type of the values passed into the generic types. <code>let array: Vec&lt;_&gt; = (0..10).collect();</code> means that <code>array</code> will be of some specific <code>Vec</code> type that will be inferred from the right hand of the assignment.</p>
-<p>NOTE: Remember that <code>Vec&lt;i32&gt;</code> and <code>Vec&lt;f64&gt;</code> are two entirely different types in Rust.</p>
-<h5 id="expressions"><strong>Expressions</strong><a hidden class="anchor" aria-hidden="true" href="#expressions">#</a></h5>
-<p>The return value of control-flow statements. For example, <code>let result: bool = if n == 3 { true } else { false };</code> can be written as <code>let result = if n == 3 { true } else { false };</code>.</p>
-<p>As a reminder, Rust cannot infer <code>constant</code> types.</p>
-<h4 id="control-flow"><strong>Control flow</strong><a hidden class="anchor" aria-hidden="true" href="#control-flow">#</a></h4>
-<p>Rust control flow constructs are what you would expect if you come from a language such as C++. There are some differences though.</p>
-<p>A few things to note about if-else statements and loops:</p>
-<ul>
-<li>They are <em>expressions</em> in Rust, and their value can be assigned to a variable.</li>
-<li>Parentheses are usually omitted unless necessary to group conditionals.</li>
-</ul>
-<h4 id="if-else-statements"><strong>If-else statements</strong><a hidden class="anchor" aria-hidden="true" href="#if-else-statements">#</a></h4>
-<p>Your typical if-else statement in many other programming languages.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let n = 3;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    if n % 2 == 0 {
-</span></span><span style="display:flex;"><span>        println!(&#34;true!&#34;)
-</span></span><span style="display:flex;"><span>    } else {
-</span></span><span style="display:flex;"><span>        println!(&#34;false!&#34;)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The most eventful thing in this example is the lack of parentheses to wrap the condition tested on <code>line 4</code>.</p>
-<h4 id="loops"><strong>Loops</strong><a hidden class="anchor" aria-hidden="true" href="#loops">#</a></h4>
-<p>Basic loops in Rust resemble loops in C++:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let mut index = 1;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    while index &lt;= 10 {
-</span></span><span style="display:flex;"><span>        println!(&#34;Iteration {index}&#34;);
-</span></span><span style="display:flex;"><span>        index += 1;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>As you would expect, the example above prints the value of <code>index</code> from <code>1</code> to <code>10</code>. The variable has to be declared as mutable, as it gets incremented inside the <code>while</code> block.</p>
-<p><code>while</code> predicates also support <em>patterns</em>. For example, we can iterate over an array, popping its elements, one by one.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let mut array = vec![1, 2, 3, 4, 5];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    while let Some(element) = array.pop() {
-</span></span><span style="display:flex;"><span>        println!(&#34;Popped element {element}&#34;);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>line 4</code> is where the magic happens:</p>
-<ol>
-<li><code>pop</code> returns a <code>Result</code>.</li>
-<li>The loop keeps running until <code>pop</code> returns <code>None</code>, meaning no elements are left.</li>
-<li><code>Some</code> will provide the value of the <code>element</code>.</li>
-</ol>
-<p>This is a more concise way of exhausting the elements in an array, and less error-prone than the classical <code>for (initialization, condition, increment)</code> loop where it is easy to use the wrong <code>condition</code>.</p>
-<p>Rust also provides another intriguing way of looping: <strong>iterators</strong>. Another way of rewriting our last example is:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let array = vec![1, 2, 3];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    for element in array {
-</span></span><span style="display:flex;"><span>        println!(&#34;Reading element {element}&#34;);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This new version uses an <em>iterator</em>. I you aren&rsquo;t familiar with iterators, think of them as a compact way to traverse the elements in an array, or other <em>iterable</em> types. The good thing about our new version is that it doesn&rsquo;t mutate the array.</p>
-<p>You can even create <a href="https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html">your own iterators</a>. We&rsquo;ll leave explaining iterators in detail for another day.</p>
-<h4 id="functions"><strong>Functions</strong><a hidden class="anchor" aria-hidden="true" href="#functions">#</a></h4>
-<p>Functions in Rust are similar to the ones in languages such as Scala or TypeScript.</p>
-<p>Here is an example:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn multiply(x: i32, y: i32) -&gt; i32 {
-</span></span><span style="display:flex;"><span>    x * y
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let result = multiply(3, 5);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;3 * 5 is {result}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
-<li>Parameters specify a type after the variable name ( <code>line 1</code>).</li>
-<li>Return types have to be specified, unless the function does not return a value ( <code>line 1</code>).</li>
-<li>The <code>return</code> keyword can be omitted to return the result of the function ( <code>line 2</code>).</li>
-<li>To call a function, we pass its required parameters inside parenthesis ( <code>line 6</code>).</li>
-</ul>
-<h4 id="comments"><strong>Comments</strong><a hidden class="anchor" aria-hidden="true" href="#comments">#</a></h4>
-<p>Comments in Rust are preceded with <code>//</code>, as in Java, C++, or JavaScript. No surprise here.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    // This is a very much needed comment. Or maybe not o__o
-</span></span><span style="display:flex;"><span>    println!(&#34;Hello, Rust!&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="ownership"><strong>Ownership</strong><a hidden class="anchor" aria-hidden="true" href="#ownership">#</a></h3>
-<p>WARNING: I couldn’t find a way to explain <em>ownership</em> without a longer text introduction. Apologies in advance!</p>
-<p>We won’t go very deep into this section, as ownership deserves a whole article (or rather a couple of them). But we will still play around with some code, to get a grasp of it.</p>
-<p>Rust’s ownership model is the power stone of what Rust brings to the table. <strong>The ownership model enables programs that are</strong>:</p>
-<ul>
-<li><strong>Memory-safe</strong></li>
-<li><strong>Free from race conditions</strong></li>
-</ul>
-<p>Oh, I forgot to mention: <strong>at compile time</strong>. Yeah, Rust won’t compile if you introduce a memory leak or a race condition.</p>
-<p>This is a game-changer. Say goodbye to two of the worst programmer’s nightmares. Well, unless you use <code>unsafe</code>, then you can keep having fun ;)</p>
-<p>Fireworks and confetti aside, I will try to explain ownership in a simple way that gives us a general, shallow idea.</p>
-<p>Every variable has a <strong>lifetime</strong>. For example:</p>
-<ul>
-<li>A variable declared at the beginning of the <code>main</code> function lives until the end of the program.</li>
-<li>A variable declared inside a function lives until the end of a function.</li>
-<li>A variable declared inside an inner scope block ( <code>{ … }</code>) lives until the end of the block.</li>
-</ul>
-<p>Basically, a variable lives for as long as the scope where it is declared. Rust enforces that a piece of code that doesn’t own a variable doesn’t use the variable after its lifetime has expired. The <strong>borrow checker</strong> is the mechanism that performs these checks.</p>
-<p>The final pieces are the concept of <strong>ownership</strong> (who owns a variable) and <strong>borrowing</strong> (who asks the owner to <em>borrow</em> a variable for a while):</p>
-<ul>
-<li>Ownership can be transferred from one variable to another.</li>
-<li>Borrowing is a different way of using a variable without getting actual ownership.</li>
-</ul>
-<p>Let’s try an example:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let first = 3;
-</span></span><span style="display:flex;"><span>    let second = first;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;first {first}&#34;);
-</span></span><span style="display:flex;"><span>    println!(&#34;second {second}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This program works as expected, printing both variables. This is because <code>second</code> <strong>copies</strong> the value in <code>first</code>. Basic types are assigned by copy.</p>
-<p>Now, let’s create a <code>String</code> and try to do the same:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let first = String::from(&#34;hey!&#34;);
-</span></span><span style="display:flex;"><span>    let second = first;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;first {first}&#34;);
-</span></span><span style="display:flex;"><span>    println!(&#34;second {second}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The compiler complains on <code>line 5</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>error[E0382]: borrow of moved value: <span style="color:#f92672">`</span>first<span style="color:#f92672">`</span>
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">--&gt;</span> src<span style="color:#f92672">/</span>main.rs:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">22</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">|</span>     let first <span style="color:#f92672">=</span> String::<span style="color:#66d9ef">from</span>(<span style="color:#e6db74">&#34;hey!&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>         <span style="color:#f92672">---</span><span style="color:#75715e">-- move occurs because `first` has type `String`, which does not implement the `Copy` trait
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>     let second <span style="color:#f92672">=</span> first;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>                  <span style="color:#f92672">---</span><span style="color:#75715e">-- value moved here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> <span style="color:#f92672">|</span>     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;first {first}&#34;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>                      <span style="color:#f92672">^^^^^</span> value borrowed here after move
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">=</span> note: this error originates <span style="color:#66d9ef">in</span> the macro <span style="color:#f92672">`</span><span style="color:#960050;background-color:#1e0010">$</span>crate::format_args_nl<span style="color:#f92672">`</span> which comes <span style="color:#66d9ef">from</span> the expansion of the macro <span style="color:#f92672">`</span>println<span style="color:#f92672">`</span> (<span style="color:#66d9ef">in</span> Nightly builds, run <span style="color:#66d9ef">with</span> <span style="color:#f92672">-</span>Z macro<span style="color:#f92672">-</span>backtrace <span style="color:#66d9ef">for</span> more info)
-</span></span><span style="display:flex;"><span>help: consider cloning the value <span style="color:#66d9ef">if</span> the performance cost <span style="color:#66d9ef">is</span> acceptable
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>     let second <span style="color:#f92672">=</span> first.<span style="color:#a6e22e">clone</span>();
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span>                       <span style="color:#f92672">++++++++</span>
-</span></span></code></pre></div><p>A lot of new information here.</p>
-<p>Rust talks about <code>first</code> being <em>moved</em>. Types that aren’t primitive types don’t have copy capabilities by default. Therefore, Rust changes the ownership of the variable. On <code>line 3</code>, <code>second</code> is the owner of the <code>String</code> declared on <code>line 2</code>.</p>
-<p>What happens next is that <code>line 5</code> tries to use <code>first</code>, but this variable doesn’t own the <code>String</code> anymore. So Rust lets us know and stops us from blowing the program up at runtime.</p>
-<p>To fix the program above, we can do the following:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let first = String::from(&#34;Hey!&#34;);
-</span></span><span style="display:flex;"><span>    let second = &amp;first;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;first {first}&#34;);
-</span></span><span style="display:flex;"><span>    println!(&#34;second {second}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Notice the <code>&amp;</code> on <code>line 3</code>. <code>second</code> doesn’t get the ownership of the value held by <code>first</code>, but asks to <strong>borrow a</strong> <strong>reference</strong> instead. <code>first</code> is still the owner of the <code>String</code>, so it can be printed out on <code>line 5</code>. Finally, <code>second</code> can safely be used on <code>line 6</code> because it holds a reference to the <code>String</code>.</p>
-<p>There are many nuances regarding <em>ownership</em>. As mentioned earlier, <em>ownership</em> deserves a dedicated article, and going through it in detail is way out of the scope of this first contact with Rust.</p>
-<h3 id="pattern-matching"><strong>Pattern Matching</strong><a hidden class="anchor" aria-hidden="true" href="#pattern-matching">#</a></h3>
-<p>Pattern Matching is one of the most powerful tools we developers could ask for. In particular, <strong>exhaustive pattern matching</strong> can be a lifesaver, forcing us to handle all cases explicitly instead of implicitly (a.k.a. forgetting to handle them, in some cases).</p>
-<p>Rust offers a very advanced pattern matching toolset. Among others, you can match: literals, arrays, wildcards, and even placeholders. Pattern matching deserves an in-depth article, but we can take a quick look at it to get an idea.</p>
-<p>We can use the most basic pattern matching in <code>if</code> statements:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let optional = Some(3);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    if let Some(value) = optional {
-</span></span><span style="display:flex;"><span>        println!(&#34;Has value {value}&#34;);
-</span></span><span style="display:flex;"><span>    } else {
-</span></span><span style="display:flex;"><span>        println!(&#34;Has no value&#34;);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If we execute the code above, we will get <code>Has value 3</code> printed out to the console. Rust <em>matches</em> the <code>optional</code> variable, then it figures out whether it is <code>Some</code> or <code>None</code>.</p>
-<p>NOTE: The <code>Option</code> type in Rust can be either <code>Some</code> or <code>None</code>. It is a great way of avoiding the need for <em>Null</em>.</p>
-<p>The above example is non-exhaustive pattern matching. In fact, nothing stops us from removing the <code>else</code> statement, effectively not handling the <code>None</code> case branch.</p>
-<p>But Rust can handle exhaustive pattern matching as well.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let optional = Some(3);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    match optional {
-</span></span><span style="display:flex;"><span>        Some(value) =&gt; println!(&#34;Has value {value}&#34;),
-</span></span><span style="display:flex;"><span>        None =&gt; println!(&#34;Has no value&#34;),
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This example is exhaustive pattern matching. If we try to remove the <code>None</code> branch, we will get an error telling us to include <code>None</code>:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let optional = Some(3);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    match optional {
-</span></span><span style="display:flex;"><span>        Some(value) =&gt; println!(&#34;Has value {value}&#34;),
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span>error[E0004]: non<span style="color:#f92672">-</span>exhaustive patterns: <span style="color:#f92672">`</span>None<span style="color:#f92672">`</span> <span style="color:#66d9ef">not</span> covered
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">--&gt;</span> src<span style="color:#f92672">/</span>main.rs:<span style="color:#ae81ff">4</span>:<span style="color:#ae81ff">11</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>   <span style="color:#f92672">|</span>     <span style="color:#66d9ef">match</span> optional <span style="color:#960050;background-color:#1e0010">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>           <span style="color:#f92672">^^^^^^^^</span> pattern <span style="color:#f92672">`</span>None<span style="color:#f92672">`</span> <span style="color:#66d9ef">not</span> covered
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span>note: <span style="color:#f92672">`</span><span style="color:#66d9ef">Option</span><span style="color:#f92672">&lt;</span>i32<span style="color:#f92672">&gt;`</span> defined here
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">--&gt;</span> <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>srodrigo<span style="color:#f92672">/</span>.rustup<span style="color:#f92672">/</span>toolchains<span style="color:#f92672">/</span>nightly<span style="color:#f92672">-</span>x86_64<span style="color:#f92672">-</span>unknown<span style="color:#f92672">-</span>linux<span style="color:#f92672">-</span>gnu<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>rustlib<span style="color:#f92672">/</span>src<span style="color:#f92672">/</span>rust<span style="color:#f92672">/</span>library<span style="color:#f92672">/</span>core<span style="color:#f92672">/</span>src<span style="color:#f92672">/</span><span style="color:#66d9ef">option</span>.rs:<span style="color:#ae81ff">566</span>:<span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">562</span> <span style="color:#f92672">|</span> pub <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">Option</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#f92672">----------------</span><span style="color:#75715e">--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">566</span> <span style="color:#f92672">|</span>     None,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>     <span style="color:#f92672">^^^^</span> <span style="color:#66d9ef">not</span> covered
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> note: the matched value <span style="color:#66d9ef">is</span> of type <span style="color:#f92672">`</span><span style="color:#66d9ef">Option</span><span style="color:#f92672">&lt;</span>i32<span style="color:#f92672">&gt;`</span>
-</span></span><span style="display:flex;"><span>help: ensure that <span style="color:#66d9ef">all</span> possible cases are being handled <span style="color:#66d9ef">by</span> adding a <span style="color:#66d9ef">match</span> arm <span style="color:#66d9ef">with</span> a wildcard pattern <span style="color:#66d9ef">or</span> an explicit pattern <span style="color:#66d9ef">as</span> shown
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>   <span style="color:#f92672">~</span>         <span style="color:#a6e22e">Some</span>(value) <span style="color:#f92672">=&gt;</span> println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Has value {value}&#34;</span>),
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>   <span style="color:#f92672">~</span>         None <span style="color:#f92672">=&gt;</span> todo<span style="color:#f92672">!</span>(),
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span>
-</span></span></code></pre></div><p>You can imagine the issues that can be avoided with exhaustive pattern matching.</p>
-<p>Rust’s pattern matching is very flexible, and we can even mix different types in the predicates. Going into detail is out of the scope of this article.</p>
-<h3 id="error-handling"><strong>Error-Handling</strong><a hidden class="anchor" aria-hidden="true" href="#error-handling">#</a></h3>
-<p>Rust has a modern way of handling error handling. When a function can error, it returns a <a href="https://doc.rust-lang.org/std/result/">Result</a> type. If you are familiar with Functional Programming, <code>Result</code> is equivalent to <code>Either</code> where:</p>
-<ul>
-<li>The <strong>left</strong> (or first) <em>variant</em> (think of a variant as a <em>type</em>, to make it easier to understand) is <code>Ok</code> (meaning <em>everything went well, here is the result value</em>)</li>
-<li>The <strong>right</strong> (or second) one is <code>Err</code> (meaning <em>something went wrong, here is the error</em>).</li>
-</ul>
-<p>NOTE: <code>Either</code> variants could potentially represent other things, but <code>Result</code> constrains them to <code>&lt;Happy, Error&gt;</code> kind of variant.</p>
-<p>Let’s see an example:</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let result: Result&lt;i32, std::io::Error&gt; = Ok(3);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    match result {
-</span></span><span style="display:flex;"><span>        Ok(value) =&gt; println!(&#34;The value is {value}&#34;),
-</span></span><span style="display:flex;"><span>        Err(error) =&gt; println!(&#34;Ops! An error occurred: {error}&#34;),
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here, we are creating an <code>Ok</code> result that contains an <code>i32</code>. We can manipulate <code>Result</code> types with pattern matching, similar to the <code>Option</code> type we studied in a previous section. This is good because we have to handle the error; otherwise, the compiler will complain.</p>
-<p>NOTE: Under the hood, <code>Result</code> is an enum that can be either <code>Ok</code> or <code>Err</code>, each taking a variant to specify the type we want.</p>
-<p>We can also <em>unwrap</em> the value or a <code>Result</code> without handling the error explicitly. This is sometimes convenient when errors cannot be recovered, and we just want to write our flow a bit more concisely. For example, calling <code>parse::&lt;i32&gt;</code> on a string will return a <code>Result&lt;i32, ParseIntError&gt;</code>. We can try calling <code>unwrap</code> to get the value inside <code>Ok</code> if we are confident or if the error is unrecoverable anyway.</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    let number = &#34;sorry, not a number&#34;.parse::&lt;i32&gt;().unwrap();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println!(&#34;Parsed number {number}&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The above code errors because the string cannot be parsed into an <code>i32</code>. Since <code>Err</code> is not handled, Rust will <em>panic</em>, then the program will terminate.</p>
-<p>NOTE: I would typically handle the above error properly, as it probably doesn&rsquo;t stop us from continuing our logic (it depends on the context). But <code>parse</code> is a pretty simple example, so it does the job for illustration purposes. Errors such as being unable to initialize the window on a GUI application are more problematic and can justify letting Rust <em>panic</em>.</p>
-<p>We can also extend from the <a href="https://doc.rust-lang.org/std/error/trait.Error.html#">Error</a> trait when we want to handle custom errors.</p>
-<p>Rust also has a <code>panic!</code> macro, which is a way of aborting the program explicitly under unrecoverable circumstances,</p>
-<p>Rust</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fn main() {
-</span></span><span style="display:flex;"><span>    panic!(&#34;Sorry, not in the mood today...&#34;);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>giving us a nice termination error:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>thread &#39;main&#39; panicked at &#39;Sorry, not in the mood today...&#39;, src/main.rs:2:5
-</span></span></code></pre></div><h2 id="conclusion"><strong>Conclusion</strong><a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
-<p>Rust is a mix of imperative and functional programming. Actually, Rust is closer to <a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML languages</a> than to languages such as C++ or Java. This makes Rust a non-trivial programming language, with concepts that aren’t necessarily simple to grasp.</p>
-<p>The Rust compiler is both our friend and our teacher. As a good friend, it won’t let us shoot our feet. But, as a good teacher, it will be unforgiving. Believe me, this is for good.</p>
-<p>We have only scratched the surface of what we can do in Rust. There is so much more that we could talk about. But this is a beginner’s introduction, I never aimed to cover the whole programming language. Maybe in future articles 🙂</p>
-<p>Happy Rusting!</p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-
-<ul class="share-buttons">
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on x"
-            href="https://x.com/intent/tweet/?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;url=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f&amp;hashtags=">
-            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f&amp;title=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;summary=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;source=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f">
-            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f&title=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide">
-            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f">
-            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on whatsapp"
-            href="https://api.whatsapp.com/send?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide%20-%20http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f">
-            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on telegram"
-            href="https://telegram.me/share/url?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;url=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f">
-            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
-                <path
-                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
-            </svg>
-        </a>
-    </li>
-    <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&u=http%3a%2f%2flocalhost%3a1313%2fgetting-started-with-rust%2f">
-            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
-                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
-                <path
-                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
-            </svg>
-        </a>
-    </li>
-</ul>
-
-  </footer>
-
-
-
-
-
-
-</article>
-    </main>
-    
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won&rsquo;t repeat the wheel here. Follow the official guide, it is pretty good."><meta name=author content="wpx_srodrigoroyo_admin"><link rel=canonical href=https://srodrigoroyo.com/getting-started-with-rust/><link crossorigin=anonymous href=/assets/css/stylesheet.4c9741be0343600f14d5886dc8c02495dd964671dd5db66c61c36d0d56fcb253.css integrity="sha256-TJdBvgNDYA8U1YhtyMAkld2WRnHdXbZsYcNtDVb8slM=" rel="preload stylesheet" as=style><link rel=icon href=https://srodrigoroyo.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://srodrigoroyo.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://srodrigoroyo.com/favicon-32x32.png><link rel=apple-touch-icon href=https://srodrigoroyo.com/apple-touch-icon.png><link rel=mask-icon href=https://srodrigoroyo.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://srodrigoroyo.com/getting-started-with-rust/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel=stylesheet><meta property="og:url" content="https://srodrigoroyo.com/getting-started-with-rust/"><meta property="og:site_name" content="Sergio Rodrigo Royo | Learn How To Code | Computer Programming"><meta property="og:title" content="Getting Started With Rust: A Simplified Hands-on Guide"><meta property="og:description" content="In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn’t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂
+How to install Rust Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won’t repeat the wheel here. Follow the official guide, it is pretty good."><meta property="og:locale" content="en-US"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-03-22T16:38:58+00:00"><meta property="article:modified_time" content="2023-03-22T16:38:58+00:00"><meta property="og:image" content="https://srodrigoroyo.com/wp-content/uploads/2023/03/getting-started-with-rust-scaled.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://srodrigoroyo.com/wp-content/uploads/2023/03/getting-started-with-rust-scaled.jpg"><meta name=twitter:title content="Getting Started With Rust: A Simplified Hands-on Guide"><meta name=twitter:description content="In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂
+How to install Rust
+Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won&rsquo;t repeat the wheel here. Follow the official guide, it is pretty good."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://srodrigoroyo.com/posts/"},{"@type":"ListItem","position":2,"name":"Getting Started With Rust: A Simplified Hands-on Guide","item":"https://srodrigoroyo.com/getting-started-with-rust/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting Started With Rust: A Simplified Hands-on Guide","name":"Getting Started With Rust: A Simplified Hands-on Guide","description":"In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn\u0026rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂\nHow to install Rust Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won\u0026rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.\n","keywords":[],"articleBody":"In a previous Introduction To Rust, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn’t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂\nHow to install Rust Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a tool to install Rust depending on your operating system, I won’t repeat the wheel here. Follow the official guide, it is pretty good.\nGetting started with Rust Now, we are finally going to write some code (that’s what we are here for, right?).\nFull disclaimer: I have to confess that I rewrote this section entirely. I wasn’t happy with a boring summary of other resources. It was even painful to write. So I spared you the pain of reading it and turned it into a less thorough but hopefully more engaging piece. I hope you will agree with me!\nLet’s roll our sleeves and get hands-on.\nHello World I refuse to use the classical Hello World, so we will go with a Hello Rust here (consider this a Hello World 1.1, or something like that 🙂).\nFirst, we need to create a new rust project. For this task, we can use cargo, Rust’s package manager. cargo new is the cargo command that creates a new project for us.\nGo ahead and open a terminal, then type the following:\nShellScript\ncargo new hello_rust Cargo will create a new hello_rust folder with the new project source code. If we inspect the project, we should see something like this:\nhello_rust/ ├── Cargo.toml ├── src/ │ └── main.rs Cargo.toml is the file where cargo defines the project package and all its dependencies, among other things.\nFor now, we are interested in main.rs. Go ahead and open this file in NeoVim your favorite editor.\nAs you can see, there is already a Hello, world program.\nRust\nfn main() { println!(\"Hello, world!\"); } The first thing we see in this file is fn main. Rust defines a function with the fn keyword. The main function in a Rust program is called, well, main. It takes no parameters.\nThe next interesting line is println!(\"Hello, Rust!\");, Rust’s macro to output a line to the standard output. For the sake of simplicity, let’s say that println! takes one string parameter. Notice that the macro needs to be called with ! (bang) to expand the macro. If this doesn’t make sense yet, we will look into macros in detail later.\nFor now, just fix the program by replacing world with Rust.\nRust\nfn main() { println!(\"Hello, Rust!\"); } On the terminal, type the following to run our improved version of the program:\nShellScript\ncargo run If everything went okay, we should see a Hello, Rust! message.\nAchievement unlocked! You have written your first program in Rust.\nRust’s basic constructs Our Hello Rust is a good start, but we need something a bit more substantial if we want to master Rust.\nOne thing to note is that Rust uses semicolons at the end of each line (yay!). Unfortunately, there are a few exceptions where semicolons are omitted. In my view, this was done with the best intentions (brevity) but it creates unnecessary confusion.\nHaving said that, let’s explore some of the basic constructs in Rust.\nVariables Variables in Rust are similar to the ones in other programming languages, such as C++ or TypeScript. To create a variable, just prefix it with let, then assign a value.\nLet’s take our Hello Rust program and extract the string on line 2 into a variable:\nRust\nfn main() { let message = \"Hello, Rust!\"; println!(\"{message}\"); } If we run the program, it should print out the exact same message as before.\nRust favors immutability by default. Re-assigning a variable will result in an error. Just for fun and exploration, let’s replace our message variable with the following:\nRust\nfn main() { let message = \"Hello, Rust!\"; message = \"Hello, C++ (huh!)\"; println!(\"{message}\"); } After some warnings, we should see an error:\nerror[E0384]: cannot assign twice to immutable variable `message` --\u003e src/main.rs:3:5 | 2 | let message = \"Hello, Rust!\"; | ------- | | | first assignment to `message` | help: consider making this binding mutable: `mut message` 3 | message = \"Hello, C++ (huh!)\"; | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable What Rust is telling us is that message is immutable, so we cannot re-assign it. The way to fix this issue is to declare the variable as mutable. We can do this in Rust by adding the mut keyword in front of the variable name:\nRust\nfn main() { let mut message = \"Hello, Rust!\"; message = \"Hello, C++ (huh!)\"; println!(\"{message}\"); } The code above compiles, meaning we can now re-assign message to the new string.\nAnother thing to note is the naming convention. Variables in Rust use the snake_case convention. For example: let my_message = \"Held by a loooong variable\";\nOne interesting thing to mention is that Rust can infer the type of the variable that we just declared. let message = \"Hello, Rust!\"; is enough for Rust to figure out that the type of this variable should be \u0026str.\nNOTE: If you are wondering what \u0026str means, it is a reference ( \u0026) to an str primitive type (a string, to simplify things). The reason it needs to be a reference is beyond the scope of this introductory article, but we’ll get there eventually.\nIf we want, we can specify the type, by adding \u0026str after the variable name: let message: \u0026str = \"Hello, Rust\";.\nThis flexibility is nice to have. Short-lived variables don’t benefit much from having the explicit type declared, but long-lived variables can be easier to follow if they have it.\nThe last trick to look at is shadowing. In Rust, you can re-declare a variable, effectively shadowing it. Example:\nRust\nfn main() { let message = \"Hello, Rust!\"; let message = \"I got a new value!\"; println!(\"Hey, {message}\"); } The snippet above will print Hey, I got a new value! out. The second declaration of message shadows the first one. Note the let keyword on line 2.\nShadowing can be a useful feature for short scopes. However, I recommend being careful and using it sparingly, as it tends to cause more confusion than clarity.\nConstants Rust provides a terser way to store immutable data, called constants. They are similar to immutable variables, but constants:\nAre declared with const instead of let. For example: const PI: f32 = 3.14159; Require the type to be specified. Need to be computed at compile-time, so they cannot store values computed at runtime. Can be declared at the global scope (I wouldn’t say this is best practice, but you can do it). Cannot be mutated, even with mut. Let’s go ahead and modify our program to replace the immutable variable with a constant (yes, constants work with str references).\nRust\nfn main() { const MESSAGE: \u0026str = \"Hello, Rust!\"; println!(\"{MESSAGE}\"); } Data Types Rust is a statically-typed language, so types are known at compile-time (including the dyn dynamic type, but that one is for a future article).\nAs we have seen in our Hello Rust example, Rust provides type inference, letting developers omit types under certain conditions. This is a list of things that Rust can infer the type from:\nVariables Rust can infer numeric, boolean, and string types, as we have already seen.\nGeneric types Inferred based on the type of the values passed into the generic types. let array: Vec\u003c_\u003e = (0..10).collect(); means that array will be of some specific Vec type that will be inferred from the right hand of the assignment.\nNOTE: Remember that Vec and Vec are two entirely different types in Rust.\nExpressions The return value of control-flow statements. For example, let result: bool = if n == 3 { true } else { false }; can be written as let result = if n == 3 { true } else { false };.\nAs a reminder, Rust cannot infer constant types.\nControl flow Rust control flow constructs are what you would expect if you come from a language such as C++. There are some differences though.\nA few things to note about if-else statements and loops:\nThey are expressions in Rust, and their value can be assigned to a variable. Parentheses are usually omitted unless necessary to group conditionals. If-else statements Your typical if-else statement in many other programming languages.\nRust\nfn main() { let n = 3; if n % 2 == 0 { println!(\"true!\") } else { println!(\"false!\") } } The most eventful thing in this example is the lack of parentheses to wrap the condition tested on line 4.\nLoops Basic loops in Rust resemble loops in C++:\nRust\nfn main() { let mut index = 1; while index \u003c= 10 { println!(\"Iteration {index}\"); index += 1; } } As you would expect, the example above prints the value of index from 1 to 10. The variable has to be declared as mutable, as it gets incremented inside the while block.\nwhile predicates also support patterns. For example, we can iterate over an array, popping its elements, one by one.\nRust\nfn main() { let mut array = vec![1, 2, 3, 4, 5]; while let Some(element) = array.pop() { println!(\"Popped element {element}\"); } } line 4 is where the magic happens:\npop returns a Result. The loop keeps running until pop returns None, meaning no elements are left. Some will provide the value of the element. This is a more concise way of exhausting the elements in an array, and less error-prone than the classical for (initialization, condition, increment) loop where it is easy to use the wrong condition.\nRust also provides another intriguing way of looping: iterators. Another way of rewriting our last example is:\nRust\nfn main() { let array = vec![1, 2, 3]; for element in array { println!(\"Reading element {element}\"); } } This new version uses an iterator. I you aren’t familiar with iterators, think of them as a compact way to traverse the elements in an array, or other iterable types. The good thing about our new version is that it doesn’t mutate the array.\nYou can even create your own iterators. We’ll leave explaining iterators in detail for another day.\nFunctions Functions in Rust are similar to the ones in languages such as Scala or TypeScript.\nHere is an example:\nRust\nfn multiply(x: i32, y: i32) -\u003e i32 { x * y } fn main() { let result = multiply(3, 5); println!(\"3 * 5 is {result}\"); } Parameters specify a type after the variable name ( line 1). Return types have to be specified, unless the function does not return a value ( line 1). The return keyword can be omitted to return the result of the function ( line 2). To call a function, we pass its required parameters inside parenthesis ( line 6). Comments Comments in Rust are preceded with //, as in Java, C++, or JavaScript. No surprise here.\nRust\nfn main() { // This is a very much needed comment. Or maybe not o__o println!(\"Hello, Rust!\"); } Ownership WARNING: I couldn’t find a way to explain ownership without a longer text introduction. Apologies in advance!\nWe won’t go very deep into this section, as ownership deserves a whole article (or rather a couple of them). But we will still play around with some code, to get a grasp of it.\nRust’s ownership model is the power stone of what Rust brings to the table. The ownership model enables programs that are:\nMemory-safe Free from race conditions Oh, I forgot to mention: at compile time. Yeah, Rust won’t compile if you introduce a memory leak or a race condition.\nThis is a game-changer. Say goodbye to two of the worst programmer’s nightmares. Well, unless you use unsafe, then you can keep having fun ;)\nFireworks and confetti aside, I will try to explain ownership in a simple way that gives us a general, shallow idea.\nEvery variable has a lifetime. For example:\nA variable declared at the beginning of the main function lives until the end of the program. A variable declared inside a function lives until the end of a function. A variable declared inside an inner scope block ( { … }) lives until the end of the block. Basically, a variable lives for as long as the scope where it is declared. Rust enforces that a piece of code that doesn’t own a variable doesn’t use the variable after its lifetime has expired. The borrow checker is the mechanism that performs these checks.\nThe final pieces are the concept of ownership (who owns a variable) and borrowing (who asks the owner to borrow a variable for a while):\nOwnership can be transferred from one variable to another. Borrowing is a different way of using a variable without getting actual ownership. Let’s try an example:\nRust\nfn main() { let first = 3; let second = first; println!(\"first {first}\"); println!(\"second {second}\"); } This program works as expected, printing both variables. This is because second copies the value in first. Basic types are assigned by copy.\nNow, let’s create a String and try to do the same:\nRust\nfn main() { let first = String::from(\"hey!\"); let second = first; println!(\"first {first}\"); println!(\"second {second}\"); } The compiler complains on line 5:\nerror[E0382]: borrow of moved value: `first` --\u003e src/main.rs:5:22 | 2 | let first = String::from(\"hey!\"); | ----- move occurs because `first` has type `String`, which does not implement the `Copy` trait 3 | let second = first; | ----- value moved here 4 | 5 | println!(\"first {first}\"); | ^^^^^ value borrowed here after move | = note: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `println` (in Nightly builds, run with -Z macro-backtrace for more info) help: consider cloning the value if the performance cost is acceptable | 3 | let second = first.clone(); | ++++++++ A lot of new information here.\nRust talks about first being moved. Types that aren’t primitive types don’t have copy capabilities by default. Therefore, Rust changes the ownership of the variable. On line 3, second is the owner of the String declared on line 2.\nWhat happens next is that line 5 tries to use first, but this variable doesn’t own the String anymore. So Rust lets us know and stops us from blowing the program up at runtime.\nTo fix the program above, we can do the following:\nRust\nfn main() { let first = String::from(\"Hey!\"); let second = \u0026first; println!(\"first {first}\"); println!(\"second {second}\"); } Notice the \u0026 on line 3. second doesn’t get the ownership of the value held by first, but asks to borrow a reference instead. first is still the owner of the String, so it can be printed out on line 5. Finally, second can safely be used on line 6 because it holds a reference to the String.\nThere are many nuances regarding ownership. As mentioned earlier, ownership deserves a dedicated article, and going through it in detail is way out of the scope of this first contact with Rust.\nPattern Matching Pattern Matching is one of the most powerful tools we developers could ask for. In particular, exhaustive pattern matching can be a lifesaver, forcing us to handle all cases explicitly instead of implicitly (a.k.a. forgetting to handle them, in some cases).\nRust offers a very advanced pattern matching toolset. Among others, you can match: literals, arrays, wildcards, and even placeholders. Pattern matching deserves an in-depth article, but we can take a quick look at it to get an idea.\nWe can use the most basic pattern matching in if statements:\nRust\nfn main() { let optional = Some(3); if let Some(value) = optional { println!(\"Has value {value}\"); } else { println!(\"Has no value\"); } } If we execute the code above, we will get Has value 3 printed out to the console. Rust matches the optional variable, then it figures out whether it is Some or None.\nNOTE: The Option type in Rust can be either Some or None. It is a great way of avoiding the need for Null.\nThe above example is non-exhaustive pattern matching. In fact, nothing stops us from removing the else statement, effectively not handling the None case branch.\nBut Rust can handle exhaustive pattern matching as well.\nRust\nfn main() { let optional = Some(3); match optional { Some(value) =\u003e println!(\"Has value {value}\"), None =\u003e println!(\"Has no value\"), } } This example is exhaustive pattern matching. If we try to remove the None branch, we will get an error telling us to include None:\nRust\nfn main() { let optional = Some(3); match optional { Some(value) =\u003e println!(\"Has value {value}\"), } } error[E0004]: non-exhaustive patterns: `None` not covered --\u003e src/main.rs:4:11 | 4 | match optional { | ^^^^^^^^ pattern `None` not covered | note: `Option\u003ci32\u003e` defined here --\u003e /home/srodrigo/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/option.rs:566:5 | 562 | pub enum Option\u003cT\u003e { | ------------------ ... 566 | None, | ^^^^ not covered = note: the matched value is of type `Option\u003ci32\u003e` help: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern or an explicit pattern as shown | 5 ~ Some(value) =\u003e println!(\"Has value {value}\"), 6 ~ None =\u003e todo!(), | You can imagine the issues that can be avoided with exhaustive pattern matching.\nRust’s pattern matching is very flexible, and we can even mix different types in the predicates. Going into detail is out of the scope of this article.\nError-Handling Rust has a modern way of handling error handling. When a function can error, it returns a Result type. If you are familiar with Functional Programming, Result is equivalent to Either where:\nThe left (or first) variant (think of a variant as a type, to make it easier to understand) is Ok (meaning everything went well, here is the result value) The right (or second) one is Err (meaning something went wrong, here is the error). NOTE: Either variants could potentially represent other things, but Result constrains them to kind of variant.\nLet’s see an example:\nRust\nfn main() { let result: Result = Ok(3); match result { Ok(value) =\u003e println!(\"The value is {value}\"), Err(error) =\u003e println!(\"Ops! An error occurred: {error}\"), } } Here, we are creating an Ok result that contains an i32. We can manipulate Result types with pattern matching, similar to the Option type we studied in a previous section. This is good because we have to handle the error; otherwise, the compiler will complain.\nNOTE: Under the hood, Result is an enum that can be either Ok or Err, each taking a variant to specify the type we want.\nWe can also unwrap the value or a Result without handling the error explicitly. This is sometimes convenient when errors cannot be recovered, and we just want to write our flow a bit more concisely. For example, calling parse:: on a string will return a Result. We can try calling unwrap to get the value inside Ok if we are confident or if the error is unrecoverable anyway.\nRust\nfn main() { let number = \"sorry, not a number\".parse::().unwrap(); println!(\"Parsed number {number}\"); } The above code errors because the string cannot be parsed into an i32. Since Err is not handled, Rust will panic, then the program will terminate.\nNOTE: I would typically handle the above error properly, as it probably doesn’t stop us from continuing our logic (it depends on the context). But parse is a pretty simple example, so it does the job for illustration purposes. Errors such as being unable to initialize the window on a GUI application are more problematic and can justify letting Rust panic.\nWe can also extend from the Error trait when we want to handle custom errors.\nRust also has a panic! macro, which is a way of aborting the program explicitly under unrecoverable circumstances,\nRust\nfn main() { panic!(\"Sorry, not in the mood today...\"); } giving us a nice termination error:\nthread 'main' panicked at 'Sorry, not in the mood today...', src/main.rs:2:5 Conclusion Rust is a mix of imperative and functional programming. Actually, Rust is closer to ML languages than to languages such as C++ or Java. This makes Rust a non-trivial programming language, with concepts that aren’t necessarily simple to grasp.\nThe Rust compiler is both our friend and our teacher. As a good friend, it won’t let us shoot our feet. But, as a good teacher, it will be unforgiving. Believe me, this is for good.\nWe have only scratched the surface of what we can do in Rust. There is so much more that we could talk about. But this is a beginner’s introduction, I never aimed to cover the whole programming language. Maybe in future articles 🙂\nHappy Rusting!\n","wordCount":"3522","inLanguage":"en","image":"https://srodrigoroyo.com/wp-content/uploads/2023/03/getting-started-with-rust-scaled.jpg","datePublished":"2023-03-22T16:38:58Z","dateModified":"2023-03-22T16:38:58Z","author":{"@type":"Person","name":"wpx_srodrigoroyo_admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://srodrigoroyo.com/getting-started-with-rust/"},"publisher":{"@type":"Organization","name":"Sergio Rodrigo Royo | Learn How To Code | Computer Programming","logo":{"@type":"ImageObject","url":"https://srodrigoroyo.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://srodrigoroyo.com/ accesskey=h title="Sergio Rodrigo Royo | Learn How To Code | Computer Programming (Alt + H)">Sergio Rodrigo Royo | Learn How To Code | Computer Programming</a><div class=logo-switches></div></div><ul id=menu></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://srodrigoroyo.com/>Home</a>&nbsp;»&nbsp;<a href=https://srodrigoroyo.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Getting Started With Rust: A Simplified Hands-on Guide</h1><div class=post-meta><span title='2023-03-22 16:38:58 +0000 GMT'>March 22, 2023</span>&nbsp;·&nbsp;<span>17 min</span>&nbsp;·&nbsp;<span>wpx_srodrigoroyo_admin</span></div></header><figure class=entry-cover><img loading=eager src=https://srodrigoroyo.com/wp-content/uploads/2023/03/getting-started-with-rust-scaled.jpg alt=getting-started-with-rust></figure><div class=post-content><p>In a previous <a href=/introduction-to-rust>Introduction To Rust</a>, we discussed what Rust is about. In this article, we will go through a hands-on guide on how to get started with Rust. This isn&rsquo;t meant to be an exhaustive guide, but a place for Rust newcomers to start. I changed the course halfway (see confession below) to make it more engaging. I hope I succeeded 🙂</p><h2 id=how-to-install-rust><strong>How to install Rust</strong><a hidden class=anchor aria-hidden=true href=#how-to-install-rust>#</a></h2><p>Before getting our hands dirty with Rust, we need to install Rust and its tooling on our computers. Since the Rust team even provides a <a href=https://www.rust-lang.org/tools/install>tool</a> to install Rust depending on your operating system, I won&rsquo;t repeat the wheel here. Follow the official guide, it is pretty good.</p><h2 id=getting-started-with-rust><strong>Getting started with Rust</strong><a hidden class=anchor aria-hidden=true href=#getting-started-with-rust>#</a></h2><p>Now, we are finally going to write some code (that’s what we are here for, right?).</p><p>Full disclaimer: I have to confess that I rewrote this section entirely. I wasn’t happy with a boring summary of other resources. It was even painful to write. So I spared you the pain of reading it and turned it into a less thorough but hopefully more engaging piece. I hope you will agree with me!</p><p>Let’s roll our sleeves and get hands-on.</p><h3 id=hello-world><strong>Hello World</strong><a hidden class=anchor aria-hidden=true href=#hello-world>#</a></h3><p>I refuse to use the classical <code>Hello World</code>, so we will go with a <code>Hello Rust</code> here (consider this a Hello World 1.1, or something like that 🙂).</p><p>First, we need to create a new rust project. For this task, we can use <code>cargo</code>, Rust’s package manager. <code>cargo new</code> is the <code>cargo</code> command that creates a new project for us.</p><p>Go ahead and open a terminal, then type the following:</p><p>ShellScript</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>cargo new hello_rust
+</span></span></code></pre></div><p>Cargo will create a new <code>hello_rust</code> folder with the new project source code. If we inspect the project, we should see something like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>hello_rust/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>├── Cargo.toml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>├── src/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>│ └── main.rs
+</span></span></code></pre></div><p><code>Cargo.toml</code> is the file where <code>cargo</code> defines the project package and all its dependencies, among other things.</p><p>For now, we are interested in <code>main.rs</code>. Go ahead and open this file in NeoVim your favorite editor.</p><p>As you can see, there is already a <code>Hello, world</code> program.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    println!(&#34;Hello, world!&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The first thing we see in this file is <code>fn main</code>. Rust defines a function with the <code>fn</code> keyword. The main function in a Rust program is called, well, <code>main</code>. It takes no parameters.</p><p>The next interesting line is <code>println!("Hello, Rust!");</code>, Rust’s <a href=https://doc.rust-lang.org/std/macro.println.html>macro</a> to output a line to the standard output. For the sake of simplicity, let’s say that <code>println!</code> takes one string parameter. Notice that the macro needs to be called with <code>!</code> (bang) to expand the macro. If this doesn’t make sense yet, we will look into macros in detail later.</p><p>For now, just <em>fix</em> the program by replacing <code>world</code> with <code>Rust</code>.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    println!(&#34;Hello, Rust!&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>On the terminal, type the following to run our improved version of the program:</p><p>ShellScript</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>cargo run
+</span></span></code></pre></div><p>If everything went okay, we should see a <code>Hello, Rust!</code> message.</p><p>Achievement unlocked! You have written your first program in Rust.</p><h3 id=rusts-basic-constructs><strong>Rust’s basic constructs</strong><a hidden class=anchor aria-hidden=true href=#rusts-basic-constructs>#</a></h3><p>Our <code>Hello Rust</code> is a good start, but we need something a bit more substantial if we want to master Rust.</p><p>One thing to note is that Rust uses semicolons at the end of each line (yay!). Unfortunately, there are a few exceptions where semicolons are omitted. In my view, this was done with the best intentions (brevity) but it creates unnecessary confusion.</p><p>Having said that, let’s explore some of the basic constructs in Rust.</p><h4 id=variables><strong>Variables</strong><a hidden class=anchor aria-hidden=true href=#variables>#</a></h4><p>Variables in Rust are similar to the ones in other programming languages, such as C++ or TypeScript. To create a variable, just prefix it with <code>let</code>, then assign a value.</p><p>Let’s take our <code>Hello Rust</code> program and extract the string on <code>line 2</code> into a variable:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let message = &#34;Hello, Rust!&#34;;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;{message}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>If we run the program, it should print out the exact same message as before.</p><p>Rust favors immutability by default. Re-assigning a variable will result in an error. Just for fun and exploration, let’s replace our <code>message</code> variable with the following:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let message = &#34;Hello, Rust!&#34;;
+</span></span><span style=display:flex><span>    message = &#34;Hello, C++ (huh!)&#34;;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;{message}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>After some warnings, we should see an error:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=display:flex><span>error[E0384]: cannot assign twice <span style=color:#66d9ef>to</span> immutable variable <span style=color:#f92672>`</span>message<span style=color:#f92672>`</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>--&gt;</span> src<span style=color:#f92672>/</span>main.rs:<span style=color:#ae81ff>3</span>:<span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span>     let message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello, Rust!&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>         <span style=color:#f92672>-----</span><span style=color:#75715e>--
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  |         |
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#f92672>|</span>         first assignment <span style=color:#66d9ef>to</span> <span style=color:#f92672>`</span>message<span style=color:#f92672>`</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>         help: consider making this binding mutable: <span style=color:#f92672>`</span>mut message<span style=color:#f92672>`</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span>     message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello, C++ (huh!)&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>     <span style=color:#f92672>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span> cannot assign twice <span style=color:#66d9ef>to</span> immutable variable
+</span></span></code></pre></div><p>What Rust is telling us is that <code>message</code> is immutable, so we cannot re-assign it. The way to fix this issue is to declare the variable as mutable. We can do this in Rust by adding the <code>mut</code> keyword in front of the variable name:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let mut message = &#34;Hello, Rust!&#34;;
+</span></span><span style=display:flex><span>    message = &#34;Hello, C++ (huh!)&#34;;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;{message}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The code above compiles, meaning we can now re-assign <code>message</code> to the new string.</p><p>Another thing to note is the naming convention. Variables in Rust use the <code>snake_case</code> convention. For example: <code>let my_message = "Held by a loooong variable";</code></p><p>One interesting thing to mention is that Rust can infer the type of the variable that we just declared. <code>let message = "Hello, Rust!";</code> is enough for Rust to figure out that the type of this variable should be <code>&amp;str</code>.</p><p>NOTE: If you are wondering what <code>&amp;str</code> means, it is a reference ( <code>&</code>) to an <code>str</code> primitive type (a <em>string</em>, to simplify things). The reason it needs to be a reference is beyond the scope of this introductory article, but we’ll get there eventually.</p><p>If we want, we can specify the type, by adding <code>&amp;str</code> after the variable name: <code>let message: &amp;str = "Hello, Rust";</code>.</p><p>This flexibility is nice to have. Short-lived variables don’t benefit much from having the explicit type declared, but long-lived variables can be easier to follow if they have it.</p><p>The last trick to look at is <strong>shadowing</strong>. In Rust, you can re-declare a variable, effectively shadowing it. Example:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let message = &#34;Hello, Rust!&#34;;
+</span></span><span style=display:flex><span>    let message = &#34;I got a new value!&#34;;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;Hey, {message}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The snippet above will print <code>Hey, I got a new value!</code> out. The second declaration of <code>message</code> shadows the first one. Note the <code>let</code> keyword on <code>line 2</code>.</p><p>Shadowing can be a useful feature for short scopes. However, I recommend being careful and using it sparingly, as it tends to cause more confusion than clarity.</p><h4 id=constants><strong>Constants</strong><a hidden class=anchor aria-hidden=true href=#constants>#</a></h4><p>Rust provides a terser way to store immutable data, called <code>constants</code>. They are similar to immutable variables, but constants:</p><ul><li>Are declared with <code>const</code> instead of <code>let</code>. For example: <code>const PI: f32 = 3.14159;</code></li><li>Require the type to be specified.</li><li>Need to be computed at compile-time, so they cannot store values computed at runtime.</li><li>Can be declared at the global scope (I wouldn’t say this is best practice, but you can do it).</li><li>Cannot be mutated, even with <code>mut</code>.</li></ul><p>Let’s go ahead and modify our program to replace the immutable variable with a constant (yes, constants work with <code>str</code> references).</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> MESSAGE: <span style=color:#f92672>&amp;</span>str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello, Rust!&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;{MESSAGE}&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=data-types><strong>Data Types</strong><a hidden class=anchor aria-hidden=true href=#data-types>#</a></h4><p>Rust is a statically-typed language, so types are known at compile-time (including the <code>dyn</code> dynamic type, but that one is for a future article).</p><p>As we have seen in our <code>Hello Rust</code> example, Rust provides <strong>type inference</strong>, letting developers omit types under certain conditions. This is a list of things that Rust can infer the type from:</p><h5 id=variables-1><strong>Variables</strong><a hidden class=anchor aria-hidden=true href=#variables-1>#</a></h5><p>Rust can infer numeric, boolean, and string types, as we have already seen.</p><h5 id=generic-types><strong>Generic types</strong><a hidden class=anchor aria-hidden=true href=#generic-types>#</a></h5><p>Inferred based on the type of the values passed into the generic types. <code>let array: Vec&lt;_> = (0..10).collect();</code> means that <code>array</code> will be of some specific <code>Vec</code> type that will be inferred from the right hand of the assignment.</p><p>NOTE: Remember that <code>Vec&lt;i32></code> and <code>Vec&lt;f64></code> are two entirely different types in Rust.</p><h5 id=expressions><strong>Expressions</strong><a hidden class=anchor aria-hidden=true href=#expressions>#</a></h5><p>The return value of control-flow statements. For example, <code>let result: bool = if n == 3 { true } else { false };</code> can be written as <code>let result = if n == 3 { true } else { false };</code>.</p><p>As a reminder, Rust cannot infer <code>constant</code> types.</p><h4 id=control-flow><strong>Control flow</strong><a hidden class=anchor aria-hidden=true href=#control-flow>#</a></h4><p>Rust control flow constructs are what you would expect if you come from a language such as C++. There are some differences though.</p><p>A few things to note about if-else statements and loops:</p><ul><li>They are <em>expressions</em> in Rust, and their value can be assigned to a variable.</li><li>Parentheses are usually omitted unless necessary to group conditionals.</li></ul><h4 id=if-else-statements><strong>If-else statements</strong><a hidden class=anchor aria-hidden=true href=#if-else-statements>#</a></h4><p>Your typical if-else statement in many other programming languages.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let n = 3;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    if n % 2 == 0 {
+</span></span><span style=display:flex><span>        println!(&#34;true!&#34;)
+</span></span><span style=display:flex><span>    } else {
+</span></span><span style=display:flex><span>        println!(&#34;false!&#34;)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The most eventful thing in this example is the lack of parentheses to wrap the condition tested on <code>line 4</code>.</p><h4 id=loops><strong>Loops</strong><a hidden class=anchor aria-hidden=true href=#loops>#</a></h4><p>Basic loops in Rust resemble loops in C++:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let mut index = 1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    while index &lt;= 10 {
+</span></span><span style=display:flex><span>        println!(&#34;Iteration {index}&#34;);
+</span></span><span style=display:flex><span>        index += 1;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>As you would expect, the example above prints the value of <code>index</code> from <code>1</code> to <code>10</code>. The variable has to be declared as mutable, as it gets incremented inside the <code>while</code> block.</p><p><code>while</code> predicates also support <em>patterns</em>. For example, we can iterate over an array, popping its elements, one by one.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let mut array = vec![1, 2, 3, 4, 5];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    while let Some(element) = array.pop() {
+</span></span><span style=display:flex><span>        println!(&#34;Popped element {element}&#34;);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>line 4</code> is where the magic happens:</p><ol><li><code>pop</code> returns a <code>Result</code>.</li><li>The loop keeps running until <code>pop</code> returns <code>None</code>, meaning no elements are left.</li><li><code>Some</code> will provide the value of the <code>element</code>.</li></ol><p>This is a more concise way of exhausting the elements in an array, and less error-prone than the classical <code>for (initialization, condition, increment)</code> loop where it is easy to use the wrong <code>condition</code>.</p><p>Rust also provides another intriguing way of looping: <strong>iterators</strong>. Another way of rewriting our last example is:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let array = vec![1, 2, 3];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    for element in array {
+</span></span><span style=display:flex><span>        println!(&#34;Reading element {element}&#34;);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This new version uses an <em>iterator</em>. I you aren&rsquo;t familiar with iterators, think of them as a compact way to traverse the elements in an array, or other <em>iterable</em> types. The good thing about our new version is that it doesn&rsquo;t mutate the array.</p><p>You can even create <a href=https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html>your own iterators</a>. We&rsquo;ll leave explaining iterators in detail for another day.</p><h4 id=functions><strong>Functions</strong><a hidden class=anchor aria-hidden=true href=#functions>#</a></h4><p>Functions in Rust are similar to the ones in languages such as Scala or TypeScript.</p><p>Here is an example:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn multiply(x: i32, y: i32) -&gt; i32 {
+</span></span><span style=display:flex><span>    x * y
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let result = multiply(3, 5);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;3 * 5 is {result}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><ul><li>Parameters specify a type after the variable name ( <code>line 1</code>).</li><li>Return types have to be specified, unless the function does not return a value ( <code>line 1</code>).</li><li>The <code>return</code> keyword can be omitted to return the result of the function ( <code>line 2</code>).</li><li>To call a function, we pass its required parameters inside parenthesis ( <code>line 6</code>).</li></ul><h4 id=comments><strong>Comments</strong><a hidden class=anchor aria-hidden=true href=#comments>#</a></h4><p>Comments in Rust are preceded with <code>//</code>, as in Java, C++, or JavaScript. No surprise here.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    // This is a very much needed comment. Or maybe not o__o
+</span></span><span style=display:flex><span>    println!(&#34;Hello, Rust!&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=ownership><strong>Ownership</strong><a hidden class=anchor aria-hidden=true href=#ownership>#</a></h3><p>WARNING: I couldn’t find a way to explain <em>ownership</em> without a longer text introduction. Apologies in advance!</p><p>We won’t go very deep into this section, as ownership deserves a whole article (or rather a couple of them). But we will still play around with some code, to get a grasp of it.</p><p>Rust’s ownership model is the power stone of what Rust brings to the table. <strong>The ownership model enables programs that are</strong>:</p><ul><li><strong>Memory-safe</strong></li><li><strong>Free from race conditions</strong></li></ul><p>Oh, I forgot to mention: <strong>at compile time</strong>. Yeah, Rust won’t compile if you introduce a memory leak or a race condition.</p><p>This is a game-changer. Say goodbye to two of the worst programmer’s nightmares. Well, unless you use <code>unsafe</code>, then you can keep having fun ;)</p><p>Fireworks and confetti aside, I will try to explain ownership in a simple way that gives us a general, shallow idea.</p><p>Every variable has a <strong>lifetime</strong>. For example:</p><ul><li>A variable declared at the beginning of the <code>main</code> function lives until the end of the program.</li><li>A variable declared inside a function lives until the end of a function.</li><li>A variable declared inside an inner scope block ( <code>{ … }</code>) lives until the end of the block.</li></ul><p>Basically, a variable lives for as long as the scope where it is declared. Rust enforces that a piece of code that doesn’t own a variable doesn’t use the variable after its lifetime has expired. The <strong>borrow checker</strong> is the mechanism that performs these checks.</p><p>The final pieces are the concept of <strong>ownership</strong> (who owns a variable) and <strong>borrowing</strong> (who asks the owner to <em>borrow</em> a variable for a while):</p><ul><li>Ownership can be transferred from one variable to another.</li><li>Borrowing is a different way of using a variable without getting actual ownership.</li></ul><p>Let’s try an example:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let first = 3;
+</span></span><span style=display:flex><span>    let second = first;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;first {first}&#34;);
+</span></span><span style=display:flex><span>    println!(&#34;second {second}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This program works as expected, printing both variables. This is because <code>second</code> <strong>copies</strong> the value in <code>first</code>. Basic types are assigned by copy.</p><p>Now, let’s create a <code>String</code> and try to do the same:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let first = String::from(&#34;hey!&#34;);
+</span></span><span style=display:flex><span>    let second = first;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;first {first}&#34;);
+</span></span><span style=display:flex><span>    println!(&#34;second {second}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The compiler complains on <code>line 5</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=display:flex><span>error[E0382]: borrow of moved value: <span style=color:#f92672>`</span>first<span style=color:#f92672>`</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>--&gt;</span> src<span style=color:#f92672>/</span>main.rs:<span style=color:#ae81ff>5</span>:<span style=color:#ae81ff>22</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span>     let first <span style=color:#f92672>=</span> String::<span style=color:#66d9ef>from</span>(<span style=color:#e6db74>&#34;hey!&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>         <span style=color:#f92672>---</span><span style=color:#75715e>-- move occurs because `first` has type `String`, which does not implement the `Copy` trait
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span>     let second <span style=color:#f92672>=</span> first;
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>                  <span style=color:#f92672>---</span><span style=color:#75715e>-- value moved here
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#ae81ff>4</span> <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>5</span> <span style=color:#f92672>|</span>     println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;first {first}&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>                      <span style=color:#f92672>^^^^^</span> value borrowed here after move
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>=</span> note: this error originates <span style=color:#66d9ef>in</span> the macro <span style=color:#f92672>`</span><span style=color:#960050;background-color:#1e0010>$</span>crate::format_args_nl<span style=color:#f92672>`</span> which comes <span style=color:#66d9ef>from</span> the expansion of the macro <span style=color:#f92672>`</span>println<span style=color:#f92672>`</span> (<span style=color:#66d9ef>in</span> Nightly builds, run <span style=color:#66d9ef>with</span> <span style=color:#f92672>-</span>Z macro<span style=color:#f92672>-</span>backtrace <span style=color:#66d9ef>for</span> more info)
+</span></span><span style=display:flex><span>help: consider cloning the value <span style=color:#66d9ef>if</span> the performance cost <span style=color:#66d9ef>is</span> acceptable
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span>     let second <span style=color:#f92672>=</span> first.<span style=color:#a6e22e>clone</span>();
+</span></span><span style=display:flex><span>  <span style=color:#f92672>|</span>                       <span style=color:#f92672>++++++++</span>
+</span></span></code></pre></div><p>A lot of new information here.</p><p>Rust talks about <code>first</code> being <em>moved</em>. Types that aren’t primitive types don’t have copy capabilities by default. Therefore, Rust changes the ownership of the variable. On <code>line 3</code>, <code>second</code> is the owner of the <code>String</code> declared on <code>line 2</code>.</p><p>What happens next is that <code>line 5</code> tries to use <code>first</code>, but this variable doesn’t own the <code>String</code> anymore. So Rust lets us know and stops us from blowing the program up at runtime.</p><p>To fix the program above, we can do the following:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let first = String::from(&#34;Hey!&#34;);
+</span></span><span style=display:flex><span>    let second = &amp;first;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;first {first}&#34;);
+</span></span><span style=display:flex><span>    println!(&#34;second {second}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Notice the <code>&</code> on <code>line 3</code>. <code>second</code> doesn’t get the ownership of the value held by <code>first</code>, but asks to <strong>borrow a</strong> <strong>reference</strong> instead. <code>first</code> is still the owner of the <code>String</code>, so it can be printed out on <code>line 5</code>. Finally, <code>second</code> can safely be used on <code>line 6</code> because it holds a reference to the <code>String</code>.</p><p>There are many nuances regarding <em>ownership</em>. As mentioned earlier, <em>ownership</em> deserves a dedicated article, and going through it in detail is way out of the scope of this first contact with Rust.</p><h3 id=pattern-matching><strong>Pattern Matching</strong><a hidden class=anchor aria-hidden=true href=#pattern-matching>#</a></h3><p>Pattern Matching is one of the most powerful tools we developers could ask for. In particular, <strong>exhaustive pattern matching</strong> can be a lifesaver, forcing us to handle all cases explicitly instead of implicitly (a.k.a. forgetting to handle them, in some cases).</p><p>Rust offers a very advanced pattern matching toolset. Among others, you can match: literals, arrays, wildcards, and even placeholders. Pattern matching deserves an in-depth article, but we can take a quick look at it to get an idea.</p><p>We can use the most basic pattern matching in <code>if</code> statements:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let optional = Some(3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    if let Some(value) = optional {
+</span></span><span style=display:flex><span>        println!(&#34;Has value {value}&#34;);
+</span></span><span style=display:flex><span>    } else {
+</span></span><span style=display:flex><span>        println!(&#34;Has no value&#34;);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>If we execute the code above, we will get <code>Has value 3</code> printed out to the console. Rust <em>matches</em> the <code>optional</code> variable, then it figures out whether it is <code>Some</code> or <code>None</code>.</p><p>NOTE: The <code>Option</code> type in Rust can be either <code>Some</code> or <code>None</code>. It is a great way of avoiding the need for <em>Null</em>.</p><p>The above example is non-exhaustive pattern matching. In fact, nothing stops us from removing the <code>else</code> statement, effectively not handling the <code>None</code> case branch.</p><p>But Rust can handle exhaustive pattern matching as well.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let optional = Some(3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    match optional {
+</span></span><span style=display:flex><span>        Some(value) =&gt; println!(&#34;Has value {value}&#34;),
+</span></span><span style=display:flex><span>        None =&gt; println!(&#34;Has no value&#34;),
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This example is exhaustive pattern matching. If we try to remove the <code>None</code> branch, we will get an error telling us to include <code>None</code>:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let optional = Some(3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    match optional {
+</span></span><span style=display:flex><span>        Some(value) =&gt; println!(&#34;Has value {value}&#34;),
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=display:flex><span>error[E0004]: non<span style=color:#f92672>-</span>exhaustive patterns: <span style=color:#f92672>`</span>None<span style=color:#f92672>`</span> <span style=color:#66d9ef>not</span> covered
+</span></span><span style=display:flex><span>   <span style=color:#f92672>--&gt;</span> src<span style=color:#f92672>/</span>main.rs:<span style=color:#ae81ff>4</span>:<span style=color:#ae81ff>11</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4</span>   <span style=color:#f92672>|</span>     <span style=color:#66d9ef>match</span> optional <span style=color:#960050;background-color:#1e0010>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>           <span style=color:#f92672>^^^^^^^^</span> pattern <span style=color:#f92672>`</span>None<span style=color:#f92672>`</span> <span style=color:#66d9ef>not</span> covered
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span>note: <span style=color:#f92672>`</span><span style=color:#66d9ef>Option</span><span style=color:#f92672>&lt;</span>i32<span style=color:#f92672>&gt;`</span> defined here
+</span></span><span style=display:flex><span>   <span style=color:#f92672>--&gt;</span> <span style=color:#f92672>/</span>home<span style=color:#f92672>/</span>srodrigo<span style=color:#f92672>/</span>.rustup<span style=color:#f92672>/</span>toolchains<span style=color:#f92672>/</span>nightly<span style=color:#f92672>-</span>x86_64<span style=color:#f92672>-</span>unknown<span style=color:#f92672>-</span>linux<span style=color:#f92672>-</span>gnu<span style=color:#f92672>/</span>lib<span style=color:#f92672>/</span>rustlib<span style=color:#f92672>/</span>src<span style=color:#f92672>/</span>rust<span style=color:#f92672>/</span>library<span style=color:#f92672>/</span>core<span style=color:#f92672>/</span>src<span style=color:#f92672>/</span><span style=color:#66d9ef>option</span>.rs:<span style=color:#ae81ff>566</span>:<span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>562</span> <span style=color:#f92672>|</span> pub <span style=color:#66d9ef>enum</span> <span style=color:#66d9ef>Option</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#960050;background-color:#1e0010>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span> <span style=color:#f92672>----------------</span><span style=color:#75715e>--
+</span></span></span><span style=display:flex><span><span style=color:#75715e>...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#ae81ff>566</span> <span style=color:#f92672>|</span>     None,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>     <span style=color:#f92672>^^^^</span> <span style=color:#66d9ef>not</span> covered
+</span></span><span style=display:flex><span>    <span style=color:#f92672>=</span> note: the matched value <span style=color:#66d9ef>is</span> of type <span style=color:#f92672>`</span><span style=color:#66d9ef>Option</span><span style=color:#f92672>&lt;</span>i32<span style=color:#f92672>&gt;`</span>
+</span></span><span style=display:flex><span>help: ensure that <span style=color:#66d9ef>all</span> possible cases are being handled <span style=color:#66d9ef>by</span> adding a <span style=color:#66d9ef>match</span> arm <span style=color:#66d9ef>with</span> a wildcard pattern <span style=color:#66d9ef>or</span> an explicit pattern <span style=color:#66d9ef>as</span> shown
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>5</span>   <span style=color:#f92672>~</span>         <span style=color:#a6e22e>Some</span>(value) <span style=color:#f92672>=&gt;</span> println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;Has value {value}&#34;</span>),
+</span></span><span style=display:flex><span><span style=color:#ae81ff>6</span>   <span style=color:#f92672>~</span>         None <span style=color:#f92672>=&gt;</span> todo<span style=color:#f92672>!</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#f92672>|</span>
+</span></span></code></pre></div><p>You can imagine the issues that can be avoided with exhaustive pattern matching.</p><p>Rust’s pattern matching is very flexible, and we can even mix different types in the predicates. Going into detail is out of the scope of this article.</p><h3 id=error-handling><strong>Error-Handling</strong><a hidden class=anchor aria-hidden=true href=#error-handling>#</a></h3><p>Rust has a modern way of handling error handling. When a function can error, it returns a <a href=https://doc.rust-lang.org/std/result/>Result</a> type. If you are familiar with Functional Programming, <code>Result</code> is equivalent to <code>Either</code> where:</p><ul><li>The <strong>left</strong> (or first) <em>variant</em> (think of a variant as a <em>type</em>, to make it easier to understand) is <code>Ok</code> (meaning <em>everything went well, here is the result value</em>)</li><li>The <strong>right</strong> (or second) one is <code>Err</code> (meaning <em>something went wrong, here is the error</em>).</li></ul><p>NOTE: <code>Either</code> variants could potentially represent other things, but <code>Result</code> constrains them to <code>&lt;Happy, Error></code> kind of variant.</p><p>Let’s see an example:</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let result: Result&lt;i32, std::io::Error&gt; = Ok(3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    match result {
+</span></span><span style=display:flex><span>        Ok(value) =&gt; println!(&#34;The value is {value}&#34;),
+</span></span><span style=display:flex><span>        Err(error) =&gt; println!(&#34;Ops! An error occurred: {error}&#34;),
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Here, we are creating an <code>Ok</code> result that contains an <code>i32</code>. We can manipulate <code>Result</code> types with pattern matching, similar to the <code>Option</code> type we studied in a previous section. This is good because we have to handle the error; otherwise, the compiler will complain.</p><p>NOTE: Under the hood, <code>Result</code> is an enum that can be either <code>Ok</code> or <code>Err</code>, each taking a variant to specify the type we want.</p><p>We can also <em>unwrap</em> the value or a <code>Result</code> without handling the error explicitly. This is sometimes convenient when errors cannot be recovered, and we just want to write our flow a bit more concisely. For example, calling <code>parse::&lt;i32></code> on a string will return a <code>Result&lt;i32, ParseIntError></code>. We can try calling <code>unwrap</code> to get the value inside <code>Ok</code> if we are confident or if the error is unrecoverable anyway.</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    let number = &#34;sorry, not a number&#34;.parse::&lt;i32&gt;().unwrap();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    println!(&#34;Parsed number {number}&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The above code errors because the string cannot be parsed into an <code>i32</code>. Since <code>Err</code> is not handled, Rust will <em>panic</em>, then the program will terminate.</p><p>NOTE: I would typically handle the above error properly, as it probably doesn&rsquo;t stop us from continuing our logic (it depends on the context). But <code>parse</code> is a pretty simple example, so it does the job for illustration purposes. Errors such as being unable to initialize the window on a GUI application are more problematic and can justify letting Rust <em>panic</em>.</p><p>We can also extend from the <a href=https://doc.rust-lang.org/std/error/trait.Error.html#>Error</a> trait when we want to handle custom errors.</p><p>Rust also has a <code>panic!</code> macro, which is a way of aborting the program explicitly under unrecoverable circumstances,</p><p>Rust</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>fn main() {
+</span></span><span style=display:flex><span>    panic!(&#34;Sorry, not in the mood today...&#34;);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>giving us a nice termination error:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>thread &#39;main&#39; panicked at &#39;Sorry, not in the mood today...&#39;, src/main.rs:2:5
+</span></span></code></pre></div><h2 id=conclusion><strong>Conclusion</strong><a hidden class=anchor aria-hidden=true href=#conclusion>#</a></h2><p>Rust is a mix of imperative and functional programming. Actually, Rust is closer to <a href=https://en.wikipedia.org/wiki/ML_(programming_language)>ML languages</a> than to languages such as C++ or Java. This makes Rust a non-trivial programming language, with concepts that aren’t necessarily simple to grasp.</p><p>The Rust compiler is both our friend and our teacher. As a good friend, it won’t let us shoot our feet. But, as a good teacher, it will be unforgiving. Believe me, this is for good.</p><p>We have only scratched the surface of what we can do in Rust. There is so much more that we could talk about. But this is a beginner’s introduction, I never aimed to cover the whole programming language. Maybe in future articles 🙂</p><p>Happy Rusting!</p></div><footer class=post-footer><ul class=post-tags></ul><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on x" href="https://x.com/intent/tweet/?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;url=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f&amp;hashtags="><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f&amp;title=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;summary=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;source=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f&title=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on whatsapp" href="https://api.whatsapp.com/send?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide%20-%20https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on telegram" href="https://telegram.me/share/url?text=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&amp;url=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Getting Started With Rust: A Simplified Hands-on Guide on ycombinator" href="https://news.ycombinator.com/submitlink?t=Getting%20Started%20With%20Rust%3a%20A%20Simplified%20Hands-on%20Guide&u=https%3a%2f%2fsrodrigoroyo.com%2fgetting-started-with-rust%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer></article></main><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
