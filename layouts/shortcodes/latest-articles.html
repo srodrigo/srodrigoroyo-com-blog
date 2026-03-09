@@ -1,0 +1,28 @@
+{{- $limit := .Get "limit" | default 6 -}}
+{{- $pages := where site.RegularPages "Type" "posts" -}}
+{{- $pages = where $pages "Params.draft" "!=" true -}}
+{{- $pages = first (int $limit) $pages.ByDate.Reverse -}}
+
+{{- if gt (len $pages) 0 -}}
+<div class="latest-articles">
+  {{- range $pages -}}
+  <article class="post-entry">
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">{{ .Title }}</h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) -}}
+    <div class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end -}}
+    <footer class="entry-footer">
+      <span title='{{ .Date }}'>{{ .Date | time.Format ":date_long" }}</span>
+      {{- if .ReadingTime }}&nbsp;·&nbsp;<span>{{ .ReadingTime }} min</span>{{- end -}}
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}"></a>
+  </article>
+  {{- end -}}
+</div>
+{{- else -}}
+<p>No articles found yet.</p>
+{{- end -}}

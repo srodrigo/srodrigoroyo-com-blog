@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>A Comprehensive Codeless Introduction To Rust | Sergio Rodrigo Royo | Learn How To Code | Computer Programming</title>
+<meta name="keywords" content="">
+<meta name="description" content="Rust is a relatively new programming language that has gained the right to be the most loved programming language on StackOverflow surveys for a few consecutive years. In this codeless introduction to Rust, we will explore what all the fuss is about.
+Rust started as an idea after a frustrating experience after a long work day. I can understand why Graydon Hoare ( @graydon_pub) opened his laptop and started designing a new programming language that helps people write code that does not mess up our beloved elevators.">
+<meta name="author" content="wpx_srodrigoroyo_admin">
+<link rel="canonical" href="http://localhost:1313/introduction-to-rust/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c9741be0343600f14d5886dc8c02495dd964671dd5db66c61c36d0d56fcb253.css" integrity="sha256-TJdBvgNDYA8U1YhtyMAkld2WRnHdXbZsYcNtDVb8slM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/introduction-to-rust/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Sergio Rodrigo Royo | Learn How To Code | Computer Programming (Alt + H)">Sergio Rodrigo Royo | Learn How To Code | Computer Programming</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      A Comprehensive Codeless Introduction To Rust
+    </h1>
+    <div class="post-meta"><span title='2023-03-16 15:00:00 +0000 GMT'>March 16, 2023</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>wpx_srodrigoroyo_admin</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/wp-content/uploads/2023/03/introduction-to-rust.png" alt="introduction-to-rust">
+        
+</figure>
+  <div class="post-content"><p>Rust is a relatively new programming language that has gained the right to be the <strong>most loved programming language</strong> on <a href="https://survey.stackoverflow.co/2022/?utm_source=so-owned&amp;utm_medium=announcement-banner&amp;utm_campaign=dev-survey-2022&amp;utm_content=results#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages">StackOverflow surveys</a> for a few consecutive years. In this codeless introduction to Rust, we will explore what all the fuss is about.</p>
+<p>Rust started as an idea after a <a href="https://www.techspot.com/news/97654-how-broken-elevator-led-one-most-loved-programming.html">frustrating</a> experience after a long work day. I can understand why Graydon Hoare ( <a href="https://twitter.com/graydon_pub">@graydon_pub</a>) opened his laptop and started designing a new programming language that helps people write code that does not mess up our beloved elevators.</p>
+<h2 id="what-is-rust">What is Rust?<a hidden class="anchor" aria-hidden="true" href="#what-is-rust">#</a></h2>
+<p>Rust is an expressive, modern, safe, and fast programming language that has been gaining popularity among developers in recent years. Rust appeared in the programming scene for the first time in 2010, after the hundreds of steps the author climbed unexpectedly. While Rust shines in Systems Programming, and it often classifies as a Systems Programming language, it is, in reality, a <strong>general-purpose programming language</strong> used in a wide range of areas such as Web Development or Game Development.</p>
+<p>Since its humble start, Rust has evolved into a mature and robust language that is a game changer in the programming world. I can say, without a doubt, that <strong>Rust is one of the most important pieces of technology in the last 20 years</strong>. Many programming languages have seen the light over the decades, but most were similar to one of the already established mainstream languages. Rust did not invent most of the concepts it builds on, but it merges them in a way that tackles actual problems developers face, in a modern way that lives up to today’s standards.</p>
+<h2 id="what-are-rusts-key-features">What are Rust’s key features?<a hidden class="anchor" aria-hidden="true" href="#what-are-rusts-key-features">#</a></h2>
+<h3 id="1-reliable-memory-safety">1. Reliable Memory Safety<a hidden class="anchor" aria-hidden="true" href="#1-reliable-memory-safety">#</a></h3>
+<p>The world of Systems Programming is plagued with <strong>memory-related errors</strong> such as buffer overflows, null pointer dereferences, or use-after-free bugs. Horror stories can be found on the internet, relating pain and suffering. Those kinds of errors are among the most annoying and difficult to find and fix.</p>
+<p>Rust provides mechanisms to avoid the above errors, which cause crashes, security vulnerabilities, and similar programmers’ nightmares. More importantly, it achieves this <strong>at compile time</strong>:</p>
+<ol>
+<li><strong>Ownership and Borrowing</strong>: One way to avoid two pieces of code incorrectly using references at once is to define an owner and borrowers. There can only be one owner of a value at a time. Borrowers can either take ownership or use a reference, but only one can be mutable simultaneously. This ownership model is the primary pillar of Rust’s memory safety.</li>
+<li><strong>Lifetimes</strong>: Rust uses lifetimes to enforce that references exist for as long as they are borrowed.</li>
+<li><strong>Null Safety</strong>: There is no such thing as Null in Rust ( <a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/">for good</a>). Instead, Rust uses an <a href="https://en.wikipedia.org/wiki/Option_type">Option type</a> to ensure that programs cannot dereference null pointers.</li>
+<li><strong>Safe Wrappers</strong>: Rust allows programmers to write unsafe code in a way that is isolated from the rest of the code. The <code>unsafe</code> keyword helps find suspicious but sometimes necessary code that can cause trouble.</li>
+</ol>
+<h3 id="2-blazing-fast-performance">2. Blazing Fast Performance<a hidden class="anchor" aria-hidden="true" href="#2-blazing-fast-performance">#</a></h3>
+<p><strong>Rust is fast</strong>, for real. And it does this without letting you shoot yourself in the foot (looking at you, C and C++). What does this mean?</p>
+<ol>
+<li><strong>Zero-cost abstractions</strong>: Rust provides high-level abstractions that compile into efficient machine code. There is no need for cryptic code that only your computer will understand.</li>
+<li><strong>Control over memory allocation</strong>: Developers can fine-tune the memory usage in their code, which allows for optimizations that help achieve the desired performance.</li>
+<li><strong>Safe concurrency</strong>: The ownership model helps write safe programs at compile time. More on this later.</li>
+<li><strong>Small runtime</strong>: Rust brings very little overhead to the table. That is important in environments with constrained resources, such as embedded devices.</li>
+</ol>
+<h3 id="3-fearless-concurrency-and-parallelism">3. Fearless Concurrency and Parallelism<a hidden class="anchor" aria-hidden="true" href="#3-fearless-concurrency-and-parallelism">#</a></h3>
+<p>Rust allows developers to write concurrent programs aggressively without worrying about race conditions, deadlocks, other rabbit holes, or gray hair makers. In the same way, as per memory safety, Rust enforces <strong>correctness at compile time</strong>. It achieves this via:</p>
+<ol>
+<li><strong>Threads</strong>: Rust provides a threads library that features lightweight abstractions.</li>
+<li><strong>Ownership and Borrowing</strong>: It allows multiple threads to access the same data safely, freeing developers up from most synchronization concerns.</li>
+<li><strong>Channels</strong>: Threads communicate via an asynchronous channel following a Sender/Receiver pattern.</li>
+<li><strong>Atomic Types</strong>: These are wrappers around the basic types (booleans, numbers, etc.) that are safe to use between threads.</li>
+<li><strong>Async/Await</strong>: Rust borrows the Async/Await model from languages such as JavaScript or C#, helping developers understand code that runs asynchronously.</li>
+</ol>
+<p>The above is a summary of Rust features to write <strong>safe concurrent and parallel code</strong> without losing too much sleep. The language provides even more features than what we have just described.</p>
+<p>There are also crates (libraries) that provide extra functionality to write concurrent and parallel code, such as <a href="https://docs.rs/tokio/latest/tokio/#">Tokyo</a>, <a href="https://docs.rs/futures">futures</a>, or <a href="https://github.com/rayon-rs/rayon">Rayon</a>.</p>
+<h3 id="4-functional-programming-nuggets">4. Functional Programming Nuggets<a hidden class="anchor" aria-hidden="true" href="#4-functional-programming-nuggets">#</a></h3>
+<p>Rust enforces Functional Programming aspects such as <strong>immutability</strong> and explicit mutability at compile time. On top of this, <strong>functions are first-class citizens</strong>, opening the door for higher-level Functional Programming features.</p>
+<p>While Rust is not a pure Functional Programming language, it has some Functional Programming constructs, such as:</p>
+<ul>
+<li><strong>Iterators</strong>: Rust provides both sync and async iterators.</li>
+<li><strong>Closures</strong>: They are anonymous functions that capture the environment within a particular scope.</li>
+<li><strong>Pattern-Matching</strong>: Rust provides powerful pattern-matching capabilities, making it easier to write exhaustive code that handles all the cases required by the matched type.</li>
+<li><strong>Type Classes</strong>: Achieved with generic type parameters. Each different parameter in a generic type changes the actual type. For example, <code>Vec&lt;f32&gt;</code> and <code>Vec&lt;char&gt;</code> are two different types, not a single type ( <code>Vec</code>) with two parameters.</li>
+<li><strong>Option and Either</strong>: Rust includes Option and Either types in its standard library. These types replace the need for Nulls and Exceptions in the language.</li>
+</ul>
+<p>Rust’s Functional Programming features help write <strong>declarative, instead of imperative, code</strong>, helping some developers reason about their code easily.</p>
+<p>However, I don’t think Rust should aim to become a fully Functional Programming language. Rust offers a concurrency and parallelism model that does not need immutability, which is one of the holy grails of Functional Programming. In other words: code written in Rust does not necessarily need some of the properties that define Functional code, because Rust has a <strong>different way of achieving safety when manipulating shared mutable states</strong>.</p>
+<h3 id="5-great-cross-platform-compatibility">5. Great Cross-Platform Compatibility<a hidden class="anchor" aria-hidden="true" href="#5-great-cross-platform-compatibility">#</a></h3>
+<p>Rust code can run on different platforms and hardware architectures with barely any modifications. Its tooling can help target and generate platform-specific code when needed:</p>
+<ol>
+<li><strong>Cargo</strong>: Rust’s package manager handles dependencies and build targets, downloading and compiling dependencies for different platforms.</li>
+<li><strong>cfg_attr attribute</strong>: Specifies the configurations that the code will apply to.</li>
+<li><strong>cfg macro</strong>: Helps with conditional compilation by targeting specific platforms.</li>
+</ol>
+<p>On top of this, Rust features <strong>interoperability with C</strong>, which allows for using C libraries that target specific architectures.</p>
+<h3 id="6-modern-and-robust-error-handling">6. Modern and Robust Error-Handling<a hidden class="anchor" aria-hidden="true" href="#6-modern-and-robust-error-handling">#</a></h3>
+<p>Rust offers <strong>error and result types</strong> instead of Null and exceptions.</p>
+<p>Developers can build errors in Rust by implementing the Error trait. The new trait implementations can include information about the error, then extract it with pattern-matching.</p>
+<p>Both Result and Error can be used with pattern-matching, helping us ensure that we handle all errors explicitly and that our code is resilient.</p>
+<p>Rust also allows propagating errors up the call stack if needed, to help developers handle errors at the appropriate level.</p>
+<h3 id="7-modern-package-manager">7. Modern Package Manager<a hidden class="anchor" aria-hidden="true" href="#7-modern-package-manager">#</a></h3>
+<p><strong>Cargo</strong> is the official Rust package manager. It is a modern package manager, similar to NPM, tailored to Rust’s needs to accommodate low-level concerns. In a nutshell, Cargo offers:</p>
+<ol>
+<li><strong>Managing dependencies</strong>: Cargo downloads the dependencies in Cargo.toml then compiles the packages.</li>
+<li><strong>Assembling distributables</strong>: Cargo bundles the dependencies and the code written by the developer and creates the executables. At this stage, Cargo manages platform-specific code depending on the target.</li>
+<li><strong>Distributing executables</strong>: You can upload your crates to <a href="https://crates.io/">crates.io</a>, Rust’s official package registry, and manage their versioning.</li>
+<li><strong>Running tests</strong>: It is crucial to have an automated test suite in modern software development. Cargo helps configure and run automated tests.</li>
+</ol>
+<p>Compared to languages that lack a C++ dedicated package manager, Rust provides a great developer experience to tame the intricate details that Bare Metal Programming can throw at us.</p>
+<h3 id="8-active-and-passionate-community">8. Active and Passionate Community<a hidden class="anchor" aria-hidden="true" href="#8-active-and-passionate-community">#</a></h3>
+<p>While you can find unwelcoming people in every community, and Rust is not an exception, I find the Rust community to be overall:</p>
+<ol>
+<li><strong>Knowledgeable</strong>: Many Rust developers come from languages like C++ and have extensive experience.</li>
+<li><strong>Helpful</strong>: I found people willing to teach me, pair with me for fun, or help out as a volunteer on platforms such as <a href="https://exercism.org/">exercism.org</a>. I can only be grateful to them for their time and dedication.</li>
+<li><strong>Passionate</strong>: You can feel that people in the Rust community firmly believe in Rust being a ground-breaking technology in the future. I do agree with them.</li>
+<li><strong>Innovative</strong>: Rust started fresh not so long ago. Rust developers are trying to push the boundaries of Programming, and look for ways to innovate.</li>
+</ol>
+<h2 id="what-are-some-real-world-examples-of-rust-projects">What are some real-world examples of Rust projects?<a hidden class="anchor" aria-hidden="true" href="#what-are-some-real-world-examples-of-rust-projects">#</a></h2>
+<p>Rust is not an academic language with good intentions and low adoption. Rust is backed by some of the biggest names in the software industry, for a good reason. Here is a non-exhaustive list of <strong>5 real-world projects that use Rust.</strong></p>
+<h3 id="1-dropbox-nucleus-sync-engine">1. Dropbox Nucleus Sync Engine<a hidden class="anchor" aria-hidden="true" href="#1-dropbox-nucleus-sync-engine">#</a></h3>
+<p>The Dropbox crew struggled to refactor and improve their existing Sync Engine Classic, up to the point that only a rewrite would help.</p>
+<p>They <a href="https://dropbox.tech/infrastructure/rewriting-the-heart-of-our-sync-engine#-so-what-did-we-build">wrote a new engine</a> called Nucleus. Here is what they say about using Rust to write the new engine:</p>
+<p>“[It] was one of the best decisions we made. <strong>More than performance, its ergonomics and focus on correctness has helped us tame sync’s complexity</strong>. We can encode complex invariants about our system in the type system and have the compiler check them for us.”</p>
+<h3 id="2-amazon-firecracker">2. Amazon Firecracker<a hidden class="anchor" aria-hidden="true" href="#2-amazon-firecracker">#</a></h3>
+<p>Firecraker is the virtualization technology that improves AWS services such as <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> and <a href="https://aws.amazon.com/fargate/">AWS Fargate</a>. Firecracker improves efficiency and resource utilization. <strong>Rust’s safety features helped Amazon achieve its security and performance standards</strong>.</p>
+<h3 id="3-figma-multiplayer-sync-engine">3. Figma “Multiplayer” Sync Engine<a hidden class="anchor" aria-hidden="true" href="#3-figma-multiplayer-sync-engine">#</a></h3>
+<p>Figma’s Synchronization engine written in TypeScript suffered from latency spikes. This was mainly due to TypeScript running on a single thread.</p>
+<p>They <a href="https://www.figma.com/blog/rust-in-production-at-figma/">replaced the problematic parts of the old engine</a> with a new one written in Rust. They took advantage of <strong>Rust’s concurrency and parallelism features</strong>, spinning up a new process per document, to improve the server-side performance dramatically.</p>
+<h3 id="4-coursera">4. Coursera<a hidden class="anchor" aria-hidden="true" href="#4-coursera">#</a></h3>
+<p>Coursera <a href="https://medium.com/coursera-engineering/rust-docker-in-production-coursera-f7841d88e6ed">used Rust</a> to avoid several security issues that are hard to avoid in C. <strong>Rust type system enforces invariants</strong> that are otherwise hard to achieve with classic Systems Programming languages like C.</p>
+<h3 id="5-servo">5. Servo<a hidden class="anchor" aria-hidden="true" href="#5-servo">#</a></h3>
+<p><a href="https://servo.org/">Servo</a> is <a href="https://www.mozilla.org/">Mozilla</a>’s parallel browser engine. Servo’s focus is on using multi-core hardware to improve performance. Servo takes advantage of <strong>Rust&rsquo;s safety and concurrency features</strong> to build a <a href="https://github.com/servo/servo/wiki/Design">parallel architecture</a> that delivers high rendering performance.</p>
+<h2 id="rusts-applications-in-systems-programming-web-development-and-beyond">Rust&rsquo;s applications in Systems Programming, Web Development, and beyond<a hidden class="anchor" aria-hidden="true" href="#rusts-applications-in-systems-programming-web-development-and-beyond">#</a></h2>
+<p>As we saw in the real-world examples, Rust is a programming language used in <strong>critical systems</strong>.</p>
+<p>Despite being a general-purpose language, Rust is typically used in Systems Programming. From the <a href="https://www.kernel.org/doc/html/next/rust/index.html">Linux kernel</a> to embedded devices, or just applications close to the metal, Rust excels in helping developers deliver fast and robust code.</p>
+<p>One of the areas where developers have higher hopes is <strong>Game Development</strong>. While still young, Rust’s Game Development ecosystem is growing and improving. <a href="https://www.youtube.com/watch?v=TJ3w-pZ7FMI">Some studios</a> have adopted Rust in its early Game Development stages.</p>
+<p>Game engines such as <a href="https://bevyengine.org/">Bevy</a> are growing and building on the valuable lessons learned from <a href="https://github.com/amethyst/amethyst">previous attempts</a> to create new Rust Game Development tech. Although I am a hobbyist, I plan to use Rust for Game Development soon.</p>
+<p>Another application of Rust is <strong>Web Development</strong>.</p>
+<ul>
+<li>Rust can help write safe and performant backend code when requirements are tight.</li>
+<li><a href="https://webassembly.org/">Web Assembly</a> is where the efforts are to use Rust in the browser. The promise of Web Assembly is secure, almost-native performance. I have worked on some experiments to run Rust code in the browser with Web Assembly. The results were satisfactory despite some limitations around loading and saving files.</li>
+</ul>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>I hope that you enjoyed this codeless introduction to Rust. To summarize this article, here is a short wrap-up.</p>
+<p>If you liked this article, please check the hands-on followup <a href="/getting-started-with-rust/">here</a>.</p>
+<h3 id="summary-of-rusts-key-features-and-benefits">Summary of Rust&rsquo;s key features and benefits<a hidden class="anchor" aria-hidden="true" href="#summary-of-rusts-key-features-and-benefits">#</a></h3>
+<p>To summarize, these are the key points where Rust excels:</p>
+<ol>
+<li><strong>Memory safety</strong></li>
+<li><strong>Performance</strong></li>
+<li><strong>Concurrency</strong></li>
+<li><strong>Cross-platform</strong></li>
+<li><strong>Community</strong></li>
+<li><strong>Compatibility</strong></li>
+<li><strong>Productivity</strong></li>
+<li><strong>Security</strong></li>
+</ol>
+<p>Overall, Rust is a powerful language that provides a unique and pragmatic approach to software development, especially in Systems Programming.</p>
+<h3 id="final-thoughts-on-rusts-future-and-potential">Final thoughts on Rust&rsquo;s future and potential<a hidden class="anchor" aria-hidden="true" href="#final-thoughts-on-rusts-future-and-potential">#</a></h3>
+<p>Rust is here to stay. I don’t have a crystal ball, and Rust might vanish in a few years. But I highly doubt so. Rust does not look like a temporary fad. It is a great technology that solves problems developers working on low-level projects have suffered for decades. Rust helps tame those problems, and is backed by the support of the big players. Only time will say, but I can’t see Rust going anywhere.</p>
+<p>Game Development is, without a doubt, one of the areas where Rust could shine. There is some resistance from developers. For decades, C++ has been the industry standard. Also, <strong>Rust is a very terse language</strong>, which sometimes does not work well with the iterative nature of Game Development. I can agree with this. At the same time, Rust is incredibly useful for programming game engines, leaving the ever-evolving gameplay logic for more flexible languages such as Lua.</p>
+<p>Another field where Rust could be a game changer is the scientific field. If I were to launch a rocket, I would rather trust the launcher code written in Rust than in C or even Python.</p>
+<p>The last areas where Rust could be a key player are AI and Machine Learning. A good amount of code is written in C and Python. However, new projects could benefit from Rust’s safety and concurrency features, to create more resilient and performant code. Rust’s interoperability with Python is not as first-class as with C, but this might be worth improving soon. AI is here to stay, so it might as well stay with Rust ;)</p>
+<h3 id="where-to-start-learning-rust">Where to start learning Rust?<a hidden class="anchor" aria-hidden="true" href="#where-to-start-learning-rust">#</a></h3>
+<p>Here are a few resources to start learning Rust:</p>
+<ol>
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+<li><a href="https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/">Programming Rust</a></li>
+<li><a href="https://www.manning.com/books/rust-in-action">Rust in Action</a></li>
+<li><a href="https://rust-lang-nursery.github.io/rust-cookbook/">Rust Cookbook</a></li>
+<li><a href="https://pragprog.com/titles/hwrust/hands-on-rust/">Hands-On Rust</a></li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on x"
+            href="https://x.com/intent/tweet/?text=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust&amp;url=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f&amp;title=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust&amp;summary=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust&amp;source=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f&title=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on whatsapp"
+            href="https://api.whatsapp.com/send?text=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust%20-%20http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on telegram"
+            href="https://telegram.me/share/url?text=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust&amp;url=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share A Comprehensive Codeless Introduction To Rust on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=A%20Comprehensive%20Codeless%20Introduction%20To%20Rust&u=http%3a%2f%2flocalhost%3a1313%2fintroduction-to-rust%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+
+
+
+
+
+
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
